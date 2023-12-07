@@ -59,6 +59,7 @@ img {
 }
 
 #signup ul li {
+	position: relative;
 	display: flex;
 	padding: 8px 30px;
 	margin-bottom: 2px;
@@ -80,6 +81,7 @@ img {
 	margin-left: 0px;
 	border: none;
 	border-bottom: 1px solid black;
+	outline: none;
 }
 
 button {
@@ -118,10 +120,15 @@ button:hover {
 }
 
 span {
-	margin-left: 5px;
-	font-size: 10px;
-	color: red
+    position: absolute;
+    top: 0px;
+    left: 355px;
+    margin-left: 5px;
+    font-size: 12px;
+    color: red;
+    white-space: nowrap; /* 긴 메시지일 때 줄 바꿈 방지 */
 }
+
 
 @font-face {
 	font-family: 'KCC-Ganpan';

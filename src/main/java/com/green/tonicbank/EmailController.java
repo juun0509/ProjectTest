@@ -3,10 +3,13 @@ package com.green.tonicbank;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
@@ -21,8 +24,12 @@ public class EmailController {
 	//이메일 인증
 	@PostMapping("/EmailAuth")
 	@ResponseBody
-	public int emailAuth(String email) {
+	public ResponseEntity<String> emailAuth(String email) {
 		System.out.println("전달 받은 이메일 주소 : " + email);
+		
+		if (!isValidEmail(email)) {
+            return new ResponseEntity<>("INVALID_EMAIL", HttpStatus.BAD_REQUEST);
+        }
 		
 		//난수의 범위 111111 ~ 999999 (6자리 난수)
 		Random random = new Random();
@@ -44,12 +51,20 @@ public class EmailController {
             helper.setSubject(title);
             helper.setText(content, true);
             mailSender.send(message);
+            System.out.println("랜덤숫자 : " + checkNum);
+            return new ResponseEntity<>(String.valueOf(checkNum), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return new ResponseEntity<>("INVALID_EMAIL", HttpStatus.BAD_REQUEST);
 		}
 		
-		System.out.println("랜덤숫자 : " + checkNum);
-		
-		return checkNum;
 	}
+	
+	private boolean isValidEmail(String email) {
+        // 간단한 이메일 유효성 검사
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        return pattern.matcher(email).matches();
+    }
+	
 }
