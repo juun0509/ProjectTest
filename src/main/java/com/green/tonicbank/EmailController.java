@@ -21,38 +21,38 @@ public class EmailController {
 	@Autowired
 	JavaMailSenderImpl mailSender;
 
-	//ÀÌ¸ŞÀÏ ÀÎÁõ
+	//ì´ë©”ì¼ ì¸ì¦
 	@PostMapping("/EmailAuth")
 	@ResponseBody
 	public ResponseEntity<String> emailAuth(String email) {
-		System.out.println("Àü´Ş ¹ŞÀº ÀÌ¸ŞÀÏ ÁÖ¼Ò : " + email);
+		System.out.println("ì „ë‹¬ ë°›ì€ ì´ë©”ì¼ ì£¼ì†Œ : " + email);
 		
 		if (!isValidEmail(email)) {
             return new ResponseEntity<>("INVALID_EMAIL", HttpStatus.BAD_REQUEST);
         }
 		
-		//³­¼öÀÇ ¹üÀ§ 111111 ~ 999999 (6ÀÚ¸® ³­¼ö)
+		//ë‚œìˆ˜ì˜ ë²”ìœ„ 111111 ~ 999999 (6ìë¦¬ ë‚œìˆ˜)
 		Random random = new Random();
 		int checkNum = random.nextInt(888888)+111111;
 		
-		//ÀÌ¸ŞÀÏ º¸³¾ ¾ç½Ä
-		String setFrom = "tonicbackmail@gmail.com"; //2´Ü°è ÀÎÁõ x, ¸ŞÀÏ ¼³Á¤¿¡¼­ POP/IMAP »ç¿ë ¼³Á¤¿¡¼­ POP/SMTP »ç¿ëÇÔÀ¸·Î ¼³Á¤o
+		//ì´ë©”ì¼ ë³´ë‚¼ ì–‘ì‹
+		String setFrom = "tonicbackmail@gmail.com"; //2ë‹¨ê³„ ì¸ì¦ x, ë©”ì¼ ì„¤ì •ì—ì„œ POP/IMAP ì‚¬ìš© ì„¤ì •ì—ì„œ POP/SMTP ì‚¬ìš©í•¨ìœ¼ë¡œ ì„¤ì •o
 		String toMail = email;
-		String title = "È¸¿ø°¡ÀÔ ÀÎÁõ ÀÌ¸ŞÀÏ ÀÔ´Ï´Ù.";
-		String content = "ÀÎÁõ ÄÚµå´Â " + checkNum + " ÀÔ´Ï´Ù." +
+		String title = "íšŒì›ê°€ì… ì¸ì¦ ì´ë©”ì¼ ì…ë‹ˆë‹¤.";
+		String content = "ì¸ì¦ ì½”ë“œëŠ” " + checkNum + " ì…ë‹ˆë‹¤." +
 						 "<br>" +
-						 "ÇØ´ç ÀÎÁõ ÄÚµå¸¦ ÀÎÁõ ÄÚµå È®ÀÎ¶õ¿¡ ±âÀÔÇÏ¿© ÁÖ¼¼¿ä.";
+						 "í•´ë‹¹ ì¸ì¦ ì½”ë“œë¥¼ ì¸ì¦ ì½”ë“œ í™•ì¸ë€ì— ê¸°ì…í•˜ì—¬ ì£¼ì„¸ìš”.";
 		
 		try {
-			MimeMessage message = mailSender.createMimeMessage(); //Spring¿¡¼­ Á¦°øÇÏ´Â mail API
-            MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-            helper.setFrom(setFrom);
-            helper.setTo(toMail);
-            helper.setSubject(title);
-            helper.setText(content, true);
-            mailSender.send(message);
-            System.out.println("·£´ı¼ıÀÚ : " + checkNum);
-            return new ResponseEntity<>(String.valueOf(checkNum), HttpStatus.OK);
+			MimeMessage message = mailSender.createMimeMessage(); //Springì—ì„œ ì œê³µí•˜ëŠ” mail API
+			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+			helper.setFrom(setFrom);
+        		helper.setTo(toMail);
+            		helper.setSubject(title);
+            		helper.setText(content, true);
+            		mailSender.send(message);
+           		System.out.println("ëœë¤ìˆ«ì : " + checkNum);
+           		return new ResponseEntity<>(String.valueOf(checkNum), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>("INVALID_EMAIL", HttpStatus.BAD_REQUEST);
@@ -61,7 +61,7 @@ public class EmailController {
 	}
 	
 	private boolean isValidEmail(String email) {
-        // °£´ÜÇÑ ÀÌ¸ŞÀÏ À¯È¿¼º °Ë»ç
+        // ê°„ë‹¨í•œ ì´ë©”ì¼ ìœ íš¨ì„± ê²€ì‚¬
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         return pattern.matcher(email).matches();
