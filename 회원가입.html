@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family:"omyu_pretty";
+
+        }
+        #logo{
+            background-size: 200px 100px;
+            text-align: center;
+            padding-top: 100px;
+            font-size: 28px;
+            font-family:"KCC-Ganpan";
+            text-shadow: 1px 0 #666;
+            cursor: pointer;
+            background-color: white;
+
+        }
+        #yy{
+            color: RGB(0,176,240);
+            font-family:"KCC-Ganpan";
+    
+        }
+        #jj{
+            color: RGB(192,235,248);
+            font-family:"KCC-Ganpan";
+        }
+        #t{
+           position: absolute;
+           top: 287px;
+           
+        }
+        img{
+            background-position: center;
+            margin-left: 0px;
+        }
+        #signup{
+           
+            padding: 20px;
+            width: 720px;
+            margin: 30px auto;
+            height: 800px;
+            position: relative;
+
+
+        }
+        .navi a:hover, .navi a:focus{ /*특정 요소에 마우스포인터를 올려놓을때, 웹 요소에 초점이 맞춰졌을때*/
+            background-color: gray;
+            color: white;
+        }
+ 
+        #signup legend{
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-bottom: 10px;
+        }
+
+        #signup ul li{
+            display: flex;
+            padding: 8px 30px;
+            margin-bottom: 2px;
+        }
+
+        
+        #signup label{
+            float: left;
+            font-size: 13px;
+            width: 60px;
+            height:20px;
+            margin-bottom: 16px;
+            margin-left: 100px;
+        }
+   
+     
+    
+     
+
+        #signup input{
+    
+            font-size: 15px;
+            padding: 5px;
+            width: 350px;
+            margin-left: 0px;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        button{
+           float: right;
+           border: none;
+           border: 1px solid none;
+           background-color:black;
+           font-size: 15px;
+           padding: 5px;
+           color: white;
+           margin-top: 80px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+      
+       
+       #reset{
+        margin-right: 10px;
+    
+       }
+       
+    
+         #send{
+            margin-left: 10px;
+            background-color:white;
+            color:black;
+            border: 1px solid black;
+            height:28px;
+            margin-top: 0px;
+
+
+        }
+        #confirm{
+            margin-left: 10px;
+          width:54.98px;
+            height:30px;
+            margin-top: 0px;
+        }
+        span{
+            margin-left: 5px;
+            font-size: 10px;
+            color:red
+        }
+ 
+        @font-face {
+        font-family: 'KCC-Ganpan';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: 'omyu_pretty';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        }
+        #please{
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="logo" onclick="location.replace('minipro.html')"><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></div>
+    <p id="please">토닉뱅크 서비스 이용을 위해 필요한 정보를 입력해주세요.</p>
+    <form id="signup">
+    
+        <ul>
+            <li>
+                <label for="id"><img src="/html/js/img/아이디.png"></label>
+                <input id="id" name="id" type="text" placeholder="아이디 3~16자리 영문자/숫자, 영문자는 반드시 포함" required>&nbsp;&nbsp;<div id="msgId" class="msg"></div>
+            </li>
+            <li>
+                <label for="pwd"><img src="/html/js/img/비번.png"></label>
+                <input id="pwd" name="pwd" type="password" placeholder="비밀번호 8~20자리 영문자/숫자/특수문자" required>&nbsp;&nbsp;<div id="msgPwd" class="msg"></div>
+                <span id="pwdError" class="error"></span>
+            </li>
+            <li>
+                <label for="pwc"><img src="/html/js/img/비번.png"></label>
+                <input id="pwc" name="pwc" type="password" placeholder="비밀번호 확인" required>&nbsp;&nbsp;<div id="msgPwc" class="msg"></div>
+                <span id="checkError" class="error"></span>
+            </li>
+  
+            <li>
+                <label for="nick"><img src="/html/js/img/아이디.png"></label>
+                <input id="nick" name="nick" type="text"  placeholder="닉네임 2~10자리 한글/영문자/숫자" required>&nbsp;&nbsp;<div id="msgNick" class="msg"></div>
+            </li>
+            <li>
+                <label for="email"><img src="/html/js/img/이메일.png" id="mail"></label>
+                <input id="email" name="email" type="email" placeholder="이메일 abcd@domain.com">
+                <button type="button" id="send">코드발송</button>
+            </li>
+            <li>
+                <label for="auth_code"></label>
+                <input id="auth_code" name="auth_code" type="text" placeholder="인증코드">
+                <button type="button" id="confirm">확인</button>&nbsp;&nbsp;<div id="msgEmail" class="msg"></div>
+            </li>
+        </ul>
+    
+
+    <button type="submit" id="submit" onclick="confirm()">회원가입</button>
+    <button type="reset" id="reset" onclick="displaySrc()">취소하기</button>
+  
+</form>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약박사</title>
+    <style>
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#con{
+    width: 1200px;
+    margin: 0 auto;
+}
+#container{
+
+    display: grid;
+    grid-template-columns: repeat(6,200px);
+    grid-template-rows: repeat(32,50px);
+    grid-template-areas:
+    "box1 box9 box9 box9 box4 box4"
+    "box1 box9 box9 box9 box4 box4"
+    "box2 box2 box2 box2 box2 box2"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box8 box8 box8 box8 box8 box8";
+}
+
+#logo{
+    grid-area:box1;
+    background-size: 200px 100px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 25px; 
+    font-family:"KCC-Ganpan";
+    text-shadow: 1px 0 #666;
+    width: 200px;
+    height: 100px;
+}
+#nav{
+    grid-area: box2;
+    font-size: 22px;
+    font-family:"omyu_pretty";
+    width: 1200px;
+    height: 50px;
+   
+}
+#slideshow{
+    grid-area: box3;
+    overflow: hidden; 
+    position: relative;
+    width: 1200px;
+    height: 245px;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-family:"LeeSeoyun";
+    background: black;
+}
+
+#side{
+    grid-area: box4;
+    border-radius: 3%;
+    border: 1px solid #ddd;
+    font-family:"omyu_pretty";
+    position: relative;
+}
+#links{
+    grid-area: box5;
+    width: 400px;
+    height: 300px;
+    border:none;
+    font-family:"LeeSeoyun";
+    text-align: center;
+    font-size: 30px;
+    background-image: url('HTML/img/오륙도.jpg');
+
+}
+#tabMenu{
+    grid-area: box6;
+    width: 790px;
+    height: 300px;
+    margin-left: 5px;
+    font-family:"omyu_pretty";
+    border-collapse: collapse;
+}
+
+footer{
+    grid-area: box8;
+    font-family:"omyu_pretty";
+    position: relative;
+}
+#search{
+    grid-area: box9;
+    font-family:"omyu_pretty";
+    width: 600px;
+    height: 100px;
+    position: relative;
+    border: none;
+}
+#contents{
+    grid-area: box10;
+    width: 1200px;
+    height: 300px;
+    font-family:"omyu_pretty";
+    margin: 50px;
+    position:relative;
+}
+#tabMenu2{
+    grid-area: box11;
+    width: 1200px;
+    height: 300px;
+    font-family:"omyu_pretty";
+    margin-top: 50px;
+    border-collapse: collapse;
+}
+
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none; 
+    display:inline;
+}
+
+
+#yy{
+    color: RGB(0,176,240);
+    
+}
+#jj{
+    color: RGB(192,235,248);
+}
+#logo:hover{
+    cursor: pointer;
+}
+
+
+
+#topMenu{
+    height: 50px;
+    margin-top: 0px;
+}
+#topMenu>li{
+    float: left;
+    position: relative;
+}
+#topMenu>li>a:hover{
+   
+    color:#000;
+}
+
+
+#topMenu>li>ul{
+ 
+    display: none;
+    
+    position: absolute;
+    width: 160px;
+    background: rgba(255, 255, 255, 0.8);
+    left: 20px;
+    margin: 0;
+}
+
+#topMenu>li:hover>ul{
+    display: block;
+    z-index: 10; 
+}
+
+#topMenu li:hover a{
+    color: black;
+}
+#topMenu>li>ul>li>a:hover{
+    color: RGB(0,176,240);
+}
+
+
+#topMenu>li>a{
+    color: gray;
+    font-weight: 500;
+    padding: 20px 50px;
+}
+
+#topMenu>li>a>span{
+    font-size: 0.5em;
+}
+
+
+#topMenu>li>ul>li{
+    padding: 10px 10px 10px 30px;
+}
+
+#topMenu>li>ul>li>a{
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+
+
+
+
+#slides{
+    position: relative;
+    cursor: pointer; 
+    overflow: hidden;
+}
+#slides > img{
+    width: 750px;
+    height: 245px;
+}
+
+#slides > div{
+    position: absolute;
+    top: 29%;
+    left: 64%;
+    font-size: 25px;
+    color: white;
+}
+
+
+
+
+.btn{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: 35%;
+    border: none;
+    background-color: transparent; 
+    color: #000;
+    font-weight: 800;
+    font-size: 24px; 
+    opacity: 0.5; 
+    border-radius: 50%;
+    text-align: center;
+}
+#prev{
+    left: 0;
+}
+#next{
+    right: 0;
+}
+button:hover{
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer; 
+
+}
+button:focus{
+    border: none;
+}  
+
+#tr1{
+    display: inline;
+}
+#tr2{
+    float:right
+}
+
+
+
+
+
+
+
+
+
+
+#side p{
+    text-align: right;
+    color: #000;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+
+.side{
+    float: right;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background-color: white;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:"omyu_pretty";
+}
+.side:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+#tabMenu input[type="radio"]{
+    display: none; 
+}
+#tabMenu label{ 
+    display: inline-block;
+    margin: 0 0;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #666;
+    border: 1px solid transparent;
+}
+
+#tabMenu label:hover{
+    color: #222;
+    cursor: pointer;
+}
+
+#tabMenu input:checked+label { 
+    color: RGB(0,176,240);
+    border: 1px solid #ddd;
+    background-color: #eee;
+}
+
+.tabContent{ 
+    display: none;
+    border: 1px solid #ddd;
+}
+.tabContent h2{
+    display: none;
+}
+#notice{
+    padding: 20px;
+}
+#notice ul{
+    list-style:none;
+    margin-left: 0px;
+}
+#notice ul li{
+    font-size:18px;
+    line-height: 1.75;
+}
+#notice ul b{
+    color: RGB(0,176,240);
+}
+#notice li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+#gallery ul li {
+    display: inline;
+}
+#gallery img{
+    width: 250px;
+    height: 110px;
+    cursor: pointer; 
+}
+.gr .caption{
+    position: absolute;
+    bottom: 203px;
+    width: 250px;
+    height: 110px;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0; 
+    transition: all 0.6s ease-in-out;
+    z-index: 10;
+}
+.gr li{
+    float: left;
+    margin-top: 7px;
+    margin-left: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.gr li:hover .caption{
+    opacity: 1;
+    transform: translateY(200px);
+}
+h3{
+    margin: 5px;
+    color: #fff;
+}
+.gr .caption h2, .gr .caption p{
+    color: #fff;
+    text-align:center;
+    padding-top: 10px !important;
+    padding: 20px;
+    line-height: 15px;
+}
+
+#tab1:checked~#notice,
+#tab2:checked~#gallery {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+#links{
+    border: 1px solid #ddd;
+}
+#links ul{
+    padding: 0;
+    overflow: hidden;
+}
+#links ul li{
+    float:left;
+    width: 33%;
+    text-align: center;
+    margin-top: 50px;
+  
+}
+#links ul li a span{
+    display: block;
+    width: 120px;
+    height: 150px;
+    border-radius: 150px;
+    margin-left: 6px;
+    border:1px solid  #aaa;
+}
+
+#links ul li a p{
+    font-weight: 600;
+    color: #666;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+
+#quick-icon1{
+    background: rgb(192,235,248);
+    background: linear-gradient(0deg, rgba(192,235,248,1) 50%, rgba(255,255,255,1) 50%);
+    }
+
+
+        #quick-icon2{
+            background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,176,240,1) 50%);
+         }
+
+        #quick-icon3{
+            background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,0,255,1) 50%);
+        }
+
+#quick-icon1:hover{
+    border: 5px solid RGB(192,235,248);
+}
+#quick-icon2:hover{
+    border: 5px solid RGB(0,176,240);
+}
+#quick-icon3:hover{
+    border: 5px solid rgba(0,0,255,1);
+}
+
+
+
+
+#prod{
+    font-size: 20px;
+    height: 50px;
+    border: 3px solid RGB(192,235,248);
+    font-family:"omyu_pretty";
+    margin-left: 5px;
+    cursor: pointer; 
+    margin-top: 20px;
+}
+#searcht{
+    width: 550px;
+    height: 50px;
+    padding: 5px;
+    border: 3px solid RGB(192,235,248);;
+    font-size: 20px;
+    overflow: auto;
+    position: absolute;
+    top: 20px;
+    left: 90px;
+    font-family:"omyu_pretty";
+    background-image: url(HTML/img/돋보기.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: right top; 
+    cursor: pointer; 
+    
+}
+
+
+
+#ft{
+   margin-left: 5px;
+   margin-top: 80px;
+
+}
+.ft{
+    color:#666;
+    border-right: 1px solid #aaa;
+    padding: 5px 10px;
+    display: inline-flex;
+}
+#ad{
+   
+    color: #666;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+#fta{
+    border-right:none;
+}
+
+
+
+#contents h2{
+    margin-top: 50px;
+    font-size: 30px;
+}
+#contents img{
+    width: 200px;
+    height: 200px;
+    border-radius: 150%;
+    float: left;
+    margin: 10px;
+    margin-top: 30px;
+    opacity:0.5; 
+}
+#contents ul{
+    margin: 0;
+}
+#contents a{
+    width: 200px;
+    height: 200px;
+    border-radius: 150%;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+    margin-top: 80px;
+    position: absolute;
+    top:34px;
+    z-index: 10;
+    color: #fff;
+    padding-top: 75px;
+}
+#contents a:hover{
+    cursor: pointer;
+    transform: rotate(30deg);
+}
+
+
+
+
+
+.recom{ 
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+
+}
+#tabMenu2 input[type="radio"]{
+    display: none; 
+}
+#tabMenu2 label{ 
+    display: inline-block;
+    margin: 0 0;
+    padding: 12px 20px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+
+#tabMenu2 label:hover{
+    color: #222;
+    cursor: pointer;
+}
+
+#tabMenu2 input:checked+label { 
+    color: RGB(255,255,101);
+    border: 1px solid #ddd;
+    background-color: black;
+}
+
+.tabContent2{ 
+    display: none;
+}
+.tabContent2 h2{
+    display: none;
+}
+
+#recom ul{
+    list-style:none;
+    margin-left: 0px;
+}
+#recom ul li{
+    font-size:18px;
+    line-height: 1.75;
+}
+.caption3{
+    text-align: center;
+   position: absolute;
+   top: 50px;
+}
+
+#recom2 ul li {
+    display: inline;
+}
+.recom img{
+    width: 250px;
+    height: 180px;
+    cursor: pointer; 
+    margin:25px;
+    margin-left: 0px;
+    margin-right: 56px;
+}
+#tree{
+    margin-right: 0px !important;
+}
+#recom2 img{
+    margin-left: 33px;
+    width: 500px;
+    height: 250px;
+}
+.recom .caption2{
+        position: absolute;
+        top: 170px;
+        width: 250px;
+        height: 110px;
+        margin:25px 0px;
+    margin-right: 5px;
+    }
+    .recom li{
+        float: left;
+        margin-top: 7px;
+        margin-left: 10px;
+        color: #000;
+        position: relative;
+    }
+#room{
+    margin-left: 0px !important;
+}
+
+    .recom .caption2 h3, .recom .caption2 p{
+        color: black;
+        text-align:center;
+        padding-top: 20px;
+        line-height: 15px;
+
+    }
+    .recom .caption3 {
+        float: inline-end;
+        position: absolute;
+        width: 250px;
+        top:130px;
+        left: 23px;
+        cursor: pointer;
+    }
+    .recom .caption3 h3, .recom .caption3 p {
+       color: white;
+       text-shadow:1.5px 1.5px 0 black;
+       font-size: larger;
+       font-weight:1.2px
+    
+    }
+    .recom .caption3 .black, .recom .caption3 .black {
+       color: black;
+       text-shadow:1.5px 1.5px 0 white;
+       font-size: larger;
+    
+    }
+
+
+    #tab3:checked~#recom,
+    #tab4:checked~#recom2 {
+    display: block;
+}
+
+
+
+
+@font-face {
+font-family: 'LeeSeoyun';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'omyu_pretty';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'KCC-Ganpan';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+a[title^="f"]{
+    background:url(/html/js/img/페북.png) no-repeat;
+  float: right;
+   display:inline;
+   position: absolute;
+   padding: 50px 15px;
+   width: 30px;
+   margin: 5px;
+   top: 100%;
+   right: 6%;
+}
+a[title^="i"]{
+    background:url(/html/js/img/인스타.jpg) no-repeat;
+    padding: 50px 15px;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:3%;
+}
+a[title^="k"]{
+    background:url(/html/js/img/카톡.png) no-repeat;
+    padding:15px;
+    background-size: cover;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:0%;
+}
+
+
+
+.more{
+    width: 50px;
+   height: 20px;
+   border: none;
+   background-color: white;
+    font-size: 12px;
+    margin-left: 690px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div id="con">
+        <div id="container">
+        <div id="logo" onclick="location.replace('minipro.html')"><h1><b id="yy">영</b>양<b id="jj">제</b></h1></div>
+
+        <div id="nav"><ul id="topMenu">
+            <li><a href="#">정보게시판</a></li>
+            <li><a href="#">자유게시판</a></li>
+            <li><a href="#">고객센터</a>
+                <ul>
+                    <li><a href="#">제품등록요청</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </li>
+            <li><a href="#">제품</a>
+                <ul>
+                    <li><a href="#">제품비교</a></li>
+                    <li><a href="#">제품</a></li>
+                </ul>
+            </li>
+        </ul><hr></div>
+
+        <div id="slideshow">
+            <div id="slides" class="slides">
+             <img src="/html/js/img/slide1.jpg" alt="" class="slide"><div class="slidet"><h2>가을철 건강관리 꿀팁!<br>영양제 추천</h2><span><br> 잘 고르는 TIP 알아보기</span></div>
+             <img src="/html/js/img/slide5.jpg" alt="" class="slide"><div class="slidet"><h2>30대 남자</h2><span>필수 영양제 추천<br> 2023 인기순위 TOP9!</span></div>
+             <img src="/html/js/img/slide4.jpg" alt="" class="slide"><div class="slidet"><h2>센트룸 실버 우먼</h2><span>실버세대 여성을 위한 맞춤 영양설계!<br>멀티비타민</span></div>
+             <img src="/html/js/img/slide2.jpg" alt="" class="slide"><div class="slidet"><h2>칼슘영양제</h2><span>뼈와 치아의 구성요소 칼슘<br>추천 건강가이드</span></div>
+             <button class="btn" id="prev">&lang;</button>
+             <button class="btn" id="next">&rang;</button>
+        </div>
+       
+
+        </div>
+
+        <div id="side">
+            <p>영양제를 더 안전하게 이용하세요</p>
+            <input type="submit" class="side" id="my" name="tabs" value="마이페이지">
+            <input type="submit" class="side" id="h" name="tabs" onclick="location.replace('회원가입.html')" value="회원가입" checked>
+            <input type="submit" class="side" id="l" name="tabs" onclick="location.replace('로그인.html')" value="로그인">
+        </div>
+
+        
+
+
+
+
+        <div id="tabMenu">
+            <input type="radio" id="tab1" name="tabs" checked>
+            <label for="tab1">정보게시판</label>
+            <input type="radio" id="tab2" name="tabs">
+            <label for="tab2">자유게시판</label>
+
+            <div id="notice" class="tabContent">
+                <h2>정보게시판</h2>
+                <ul>
+                    <li><b>전체 | </b>봐도 어려운 영양제 단위 정리해드립니다</li>
+                    <li><b>전체 | </b> 과학적으로 증명된 영양제들</li>
+                    <li><b>전체 | </b>궁합이 좋은 영양제 찾기</li>
+                    <li><b>위장 | </b>유산균의 효능과 종류 정리</li>
+                    <li><b>피로&면역 | </b>현대인들의 면역력 뇌 피로 영양제 추천</li>
+                    <li><b>항산화 | </b>항산화의 효능과 원리</li>
+                    <button type="submit" class="more">더보기</button>
+                </ul>
+            </div>
+
+
+
+            <div id="gallery" class="tabContent">
+                <h2>자유게시판</h2>
+                <ul class="gr">
+                    <li><img src="/html/js/img/비오비타.jpg">
+                    <div class="caption">
+                        <h3>닉네임: 비타</h3>
+                        <p>제품명:비오비타<br>아기 유산균 비오비타 베베 두 달 후기입니다</p>
+                    </div>
+                    </li>
+
+                    <li><img src="/html/js/img/관절.jpg">
+                    <div class="caption">
+                        <h3>닉네임: 팔팔</h3>
+                        <p>제품명: 씨스팡 관절팔팔<br>씨스팡 관절팔팔 초록잎홍합추출오일 후기</p>
+                    </div>
+                    </li>
+
+                    <li><img src="/html/js/img/밀크.jpg">
+                    <div class="caption">
+                        <h3>닉네임: 밀크</h3>
+                        <p>제품명:밀크씨슬<br>간 겅강 챙겨보려 합니다. 뉴트리코어 유기농 밀크씨슬 후기</p>
+                    </div>
+                </li>
+
+
+                    <li><img src="/html/js/img/메가.jpg">
+                    <div class="caption">
+                        <h3>닉네임: 메가</h3>
+                        <p>제품명: 메가도스<br>비타민c 메가도스 6개월 느낀점</p>
+                    </div>
+                </li>
+
+
+                    <li><img src="/html/js/img/가르.jpg">
+                    <div class="caption">
+                        <h3>닉네임: 니아</h3>
+                        <p>제품명: 가르시니아 캄보자아<br>195일동안 영양제 먹으면서 다이어트 한 결과 대공개!</p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+   
+
+
+
+
+        <div id="links">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span id="quick-icon1"></span>
+                        <p>성분비교</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span id="quick-icon2"></span>
+                        <p>권장량</p>
+                        </a>
+                </li>
+                <li>
+                <a href="#">
+                    <span id="quick-icon3"></span>
+                    <p>AI추천</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <fieldset id="search">
+            <div id="sel">
+                <select id="prod" title="select">
+                <option value="" selected>전체</option>
+                <option value="1" >상품명</option>
+                <option value="2" >성분명</option>
+                <option value="3" >브랜드명</option>
+                </select>
+            </div>
+            <input id="searcht" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
+          
+        </fieldset>
+
+
+        <div id="tabMenu2">
+            <input type="radio" id="tab3" name="tab" checked>
+            <label for="tab3">맞춤 추천</label>
+            <input type="radio" id="tab4" name="tab">
+            <label for="tab4">떴다! 방영상품</label>
+
+            <div id="recom" class="tabContent2">
+                <h2>가을시즌 추천</h2>
+                <ul class="recom">
+                    <li id="room"><img src="/html/js/img/센트룸.jpg">
+                    <div class="caption2">
+                        <h3>닥터린</h3>
+                        <p>송중기 초임계 알티지(rTG) 오메가3 <br> <br>19,000원~</p>
+                    </div>
+                    </li>
+
+                    <li><img src="/html/js/img/고려은단.jpg">
+                    <div class="caption2">
+                        <h3>고려은단</h3>
+                        <p>비타민 13종 미네랄 10종 올인원!<br> 멀티비타민 <br><br>39,000원~</p>
+                    </div>
+                    </li>
+
+                    <li><img src="/html/js/img/닥터린.jpg">
+                    <div class="caption2">
+                        <h3>센트룸 실버 우먼</h3>
+                        <p>실버세대 여성을 위한 맞춤 영양설계!<br>멀티비타민<br> <br>9,000원~</p>
+                    </div>
+                </li>
+
+
+                    <li><img src="/html/js/img/메디트리.jpg" id="tree">
+                    <div class="caption2">
+                        <h3>메디트리</h3>
+                        <p>유기농 고함량<br>비오틴+비타민B12+셀렌<br><br>29,000원~</p>
+                    </div>
+                </li>
+
+                </ul>
+            </div>
+
+
+
+            <div id="recom2" class="tabContent2">
+                <h2>떴다! 방영상품</h2>
+                <ul class="recom">
+                    <li><img src="/html/js/img/익스트림.jpg" id="new" onclick="you('https://www.youtube.com/watch?v=WEMDd0-c9fY','pop','500','400')">
+                    <div class="caption3">
+                        <h3>익스트림 블랙마카<br>1800 김종국 흑마늘 야관문 흑삼</h3>
+                        <p>34900원</p>
+                    </div>
+                    </li>
+
+                    <li><img src="/html/js/img/옵티.jpg">
+                    <div class="caption3">
+                        <h3 class="black">옵티머스트 3+1개월<br> 17차 완판 100원 이벤트!</h3>
+                        <p class="black">179,500원</p>
+                    </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="contents">
+            <h2>인기 태그</h2>
+                <ul><li><a>피로&면역</a><img src="/html/js/img/피로색.png"></li>
+                <li><a>피부</a><img src="/html/js/img/피부색.png"></li>
+                <li><a>항산화</a><img src="/html/js/img/항산화색.png"></li>
+                <li><a>위장</a><img src="/html/js/img/장색.png"></li>
+                <li><a>다이어트</a><img src="/html/js/img/다이어트색.png"></li>
+            </ul>
+        </div>
+
+        <footer>
+            <div id="ft">
+            <ul>
+                <li class="ft">회사소개</li>
+                <li class="ft">개인정보처리방침</li>
+                <li class="ft">여행약관</li>
+                <li class="ft">저작권정책</li>
+                <li class="ft">Q&A</li>
+                <li class="ft" id="fta">사이트맵</li>
+                
+            </ul>
+            <p id="ad">(우)26464 충청북도 청주시 **동 **로 *** (TEL)043-1234-5678 사업자 등록번호: 202-81-50707</p>
+                <p><a href="#" title="f"></a><a href="#" title="i"></a><a href="#" title="k"></a></p>
+        </div>
+        </footer>
+  
+
+
+    </div>
+</div>
+<script>
+    let prev_bttn=document.getElementById("prev");
+let next_bttn=document.getElementById("next");
+let imgs=document.querySelectorAll("#slides img");
+let text=document.querySelectorAll("#slides div");
+let img_num=0;
+
+showimg(img_num);
+
+
+
+prev_bttn.onclick=function(){
+    img_num--;
+    if(img_num<0){
+        img_num=imgs.length-1;
+    }
+    showimg(img_num);
+    console.log(img_num)
+};
+
+
+next_bttn.onclick=function(){
+    img_num++;
+    if(img_num>imgs.length-1){
+        img_num=0;
+    }
+    showimg(img_num);
+    console.log(img_num)
+};
+
+
+
+function showimg(n){
+    
+    for(let i=0;i<imgs.length;i++){
+        imgs[i].style.display="none";
+        text[i].style.display="none";
+       
+    }
+    imgs[n].style.display="block";
+    text[n].style.display="block";
+   
+}
+
+
+//슬라이드 이미지
+var index = 0;   //이미지에 접근하는 인덱스
+        window.onload = function () {
+            slideShow();
+        }
+
+        function slideShow() {
+            var i;
+            var x = document.getElementsByClassName("slide");  
+            var t = document.getElementsByClassName("slidet"); 
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                t[i].style.display = "none";   //처음에 전부 display를 none으로 한다.
+            }
+            index++;
+            if (index > x.length) {
+                index = 1;  //인덱스가 초과되면 1로 변경
+            }
+            x[index - 1].style.display = "block";
+            t[index - 1].style.display = "block";  //해당 인덱스는 block으로
+            setTimeout(slideShow, 4000);   //함수를 4초마다 호출
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function you(doc, win,w,h){
+        var left=0;
+        var top=0;
+        var opt="left="+left+",top="+top+",width="+w+",height="+h;
+        window.open(doc,win,opt);
+    }
+</script>
+</body>
+</html>
+
