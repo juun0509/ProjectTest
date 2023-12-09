@@ -10,14 +10,14 @@
 	<link rel="stylesheet" href="/domain/resources/css/SignUp.css">
 </head>
 <body>
-	<div id="logo" onclick="location.replace('minipro.html')"><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></div>
+	<div id="logo"><a href="<c:url value='/'/>"><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></a></div>
     <p id="please">토닉뱅크 서비스 이용을 위해 필요한 정보를 입력해주세요.</p>
     <form action='<c:url value="/signUp/join"/>' method="post" id="signup" onsubmit="return formCheck(this)">
         <ul>
             <li>
-                <label for="id"><img src="/domain/resources/img/아이디.png"></label>
-                <input id="id" name="id" type="text" placeholder="아이디 3~16자리 영문자/숫자, 영문자는 반드시 포함" onblur="inputCheck(this)">&nbsp;&nbsp;
-                <span id="msgId" class="msg"></span>
+                <label for="userId"><img src="/domain/resources/img/아이디.png"></label>
+                <input id="userId" name="userId" type="text" placeholder="아이디 3~16자리 영문자/숫자, 영문자는 반드시 포함" onblur="inputCheck(this)">&nbsp;&nbsp;
+                <span id="msgUserId" class="msg"></span>
             </li>
             <li>
                 <label for="pwd"><img src="/domain/resources/img/비번.png"></label>
@@ -52,17 +52,31 @@
 	    <button type="reset" id="reset">취소하기</button>
 	</form>
 	<script>
-		let code;
+		// let code;
 	
+		//중복확인
+		function duplId(fieldValue, callback) {
+		    $.ajax({
+		        url: "/domain/signUp/duplId",
+		        type: "POST",
+		        dataType: "json",
+		        data: { userId: fieldValue },
+		        success: function (result) {
+		        	console.log('result:'+result)
+		            // 콜백 함수 호출 시 불리언 값을 전달
+		            callback(result == 1);
+		        }
+		    });
+		}
+		
 		// 각각 input에서 커서가 벗어났을 때 유효성 검사
 		function inputCheck(input) {
-			console.log(input.name)
 	        const fieldName = input.name;
 	        const fieldValue = input.value;
 	        const msgElement = $('#msg' + fieldName.charAt(0).toUpperCase() + fieldName.slice(1));
 	        
 	        switch(fieldName) {
-	            case 'id':
+	            case 'userId':
 	                // ID에 대한 유효성 검사
 	                if (fieldValue.length == 0) {
 	                	$(msgElement).text('ID를 입력하세요.');
@@ -71,7 +85,15 @@
 	                } else if (!/[a-zA-Z]/.test(fieldValue)) {
 	                    msgElement.text('아이디에는 영문자가 반드시 포함되어야 합니다.');
 	                } else {
-	                    msgElement.text('');
+	                    // 비동기 함수 호출 및 콜백 함수로 결과 처리
+	                    duplId(fieldValue, function (isDuplicate) {
+	                    	console.log(isDuplicate);
+	                        if (isDuplicate) {
+	                            msgElement.text('중복된 아이디가 있습니다.');
+	                        } else {
+	                            msgElement.text('');
+	                        }
+	                    });
 	                }
 	                break;
 	            case 'pwd':
@@ -132,7 +154,7 @@
 		// 폼 전체 유효성 검사 함수
 	    function formCheck(frm) {
 	        // 모든 입력 필드에 대한 유효성 검사
-	        const idValid = inputCheck(frm.id);
+	        const idValid = inputCheck(frm.userId);
 	        const pwdValid = inputCheck(frm.pwd);
 	        const pwcValid = inputCheck(frm.pwc);
 	        const nickValid = inputCheck(frm.nick);
@@ -156,6 +178,7 @@
 	        }
 	    }
 	    
+		// 취소버튼 누르면 이메일 입력란 다시 활성화
 		$("#reset").click(function(){
 			$('#email').attr('readonly', false);
 			$("#auth_code").attr("disabled", true);
@@ -166,6 +189,7 @@
 		
 		//인증하기 버튼을 눌렀을 때 동작
 		$("#send").click(function() {
+			alert("처리중입니다.");
 	    	const email = $("#email").val(); //사용자가 입력한 이메일 값 얻어오기
 	    		
 	    	//Ajax로 전송

@@ -1,7 +1,5 @@
-package com.green.tonicbank;
+package com.green.tonicbank.controller;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 import java.util.regex.Pattern;
 

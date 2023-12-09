@@ -1,4 +1,4 @@
-package com.green.tonicbank.service;
+package com.green.tonicbank.model;
 
 public class PageHandler {
 
