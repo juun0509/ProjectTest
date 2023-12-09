@@ -6,7 +6,7 @@
 <typeAliases>
 
 	<typeAlias alias="User" type="com.green.tonicbank.model.User"/>
-	<typeAlias alias="SearchCondition" type="com.green.tonicbank.service.SearchCondition"/>
+	<typeAlias alias="SearchCondition" type="com.green.tonicbank.model.SearchCondition"/>
 	
 </typeAliases>	
 </configuration>
