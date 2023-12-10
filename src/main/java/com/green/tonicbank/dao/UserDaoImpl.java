@@ -18,6 +18,12 @@ public class UserDaoImpl implements UserDao {
 		return session.insert(namespace+"insert", user);
 	}
 	
+	//유저 가져오기
+	@Override
+	public User select(String userId) throws Exception {
+		return session.selectOne(namespace+"select", userId);
+	}
+	
 	// 아이디 중복 확인
 	@Override
 	public int idCheck(String userId) throws Exception {

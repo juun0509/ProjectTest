@@ -1,0 +1,772 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#con{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(6,200px);
+    grid-template-rows: repeat(32,50px);
+    grid-template-areas:
+    "box1 box9 box9 box9 box4 box4"
+    "box1 box9 box9 box9 box4 box4"
+    "box2 box2 box2 box2 box2 box2"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box3 box3 box3 box3 box3 box3"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box6 box6 box6 box6 box5 box5"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box10 box10 box10 box10 box10 box10"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box11 box11 box11 box11 box11 box11"
+    "box8 box8 box8 box8 box8 box8";
+}
+
+#logo{
+    grid-area:box1;
+    background-size: 200px 100px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 25px; 
+    font-family:"KCC-Ganpan";
+    text-shadow: 1px 0 #666;
+    width: 200px;
+    height: 100px;
+}
+
+#nav{
+    grid-area: box2;
+    font-size: 22px;
+    font-family:"omyu_pretty";
+    width: 1200px;
+    height: 50px;
+   
+}
+
+#slideshow{
+    grid-area: box3;
+    overflow: hidden; 
+    position: relative;
+    width: 1200px;
+    height: 245px;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-family:"LeeSeoyun";
+    background: black;
+}
+
+#side{
+    grid-area: box4;
+    border-radius: 3%;
+    border: 1px solid #ddd;
+    font-family:"omyu_pretty";
+    position: relative;
+}
+
+#links{
+    grid-area: box5;
+    width: 400px;
+    height: 300px;
+    border:none;
+    font-family:"LeeSeoyun";
+    text-align: center;
+    font-size: 30px;
+    background-image: url('HTML/img/오륙도.jpg');
+}
+
+#tabMenu{
+    grid-area: box6;
+    width: 790px;
+    height: 300px;
+    margin-left: 5px;
+    font-family:"omyu_pretty";
+    border-collapse: collapse;
+}
+
+footer{
+    grid-area: box8;
+    font-family:"omyu_pretty";
+    position: relative;
+}
+
+#search{
+    grid-area: box9;
+    font-family:"omyu_pretty";
+    width: 600px;
+    height: 100px;
+    position: relative;
+    border: none;
+}
+
+#contents{
+    grid-area: box10;
+    width: 1200px;
+    height: 300px;
+    font-family:"omyu_pretty";
+    margin: 50px;
+    position:relative;
+}
+
+#tabMenu2{
+    grid-area: box11;
+    width: 1200px;
+    height: 300px;
+    font-family:"omyu_pretty";
+    margin-top: 50px;
+    border-collapse: collapse;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none; 
+    display:inline;
+}
+
+#yy{
+    color: RGB(0,176,240);
+}
+
+#jj{
+    color: RGB(192,235,248);
+}
+
+#logo:hover{
+    cursor: pointer;
+}
+
+#topMenu{
+    height: 50px;
+    margin-top: 0px;
+}
+
+#topMenu>li{
+    float: left;
+    position: relative;
+}
+
+#topMenu>li>a:hover{
+   
+    color:#000;
+}
+
+#topMenu>li>ul{
+    display: none;
+    position: absolute;
+    width: 160px;
+    background: rgba(255, 255, 255, 0.8);
+    left: 20px;
+    margin: 0;
+}
+
+#topMenu>li:hover>ul{
+    display: block;
+    z-index: 10; 
+}
+
+#topMenu li:hover a{
+    color: black;
+}
+
+#topMenu>li>ul>li>a:hover{
+    color: RGB(0,176,240);
+}
+
+#topMenu>li>a{
+    color: gray;
+    font-weight: 500;
+    padding: 20px 50px;
+}
+
+#topMenu>li>a>span{
+    font-size: 0.5em;
+}
+
+#topMenu>li>ul>li{
+    padding: 10px 10px 10px 30px;
+}
+
+#topMenu>li>ul>li>a{
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+
+#slides{
+    position: relative;
+    cursor: pointer; 
+    overflow: hidden;
+}
+
+#slides > img{
+    width: 750px;
+    height: 245px;
+}
+
+#slides > div{
+    position: absolute;
+    top: 29%;
+    left: 64%;
+    font-size: 25px;
+    color: white;
+}
+
+.btn{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: 35%;
+    border: none;
+    background-color: transparent; 
+    color: #000;
+    font-weight: 800;
+    font-size: 24px; 
+    opacity: 0.5; 
+    border-radius: 50%;
+    text-align: center;
+}
+
+#prev{
+    left: 0;
+}
+
+#next{
+    right: 0;
+}
+
+button:hover{
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer; 
+}
+
+button:focus{
+    border: none;
+}  
+
+#tr1{
+    display: inline;
+}
+
+#tr2{
+    float:right
+}
+
+#side p{
+    text-align: right;
+    color: #000;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.side{
+    float: right;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background-color: white;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:"omyu_pretty";
+}
+
+.side:hover{
+    cursor: pointer;
+}
+
+#tabMenu input[type="radio"]{
+    display: none; 
+}
+
+#tabMenu label{ 
+    display: inline-block;
+    margin: 0 0;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #666;
+    border: 1px solid transparent;
+}
+
+#tabMenu label:hover{
+    color: #222;
+    cursor: pointer;
+}
+
+#tabMenu input:checked+label { 
+    color: RGB(0,176,240);
+    border: 1px solid #ddd;
+    background-color: #eee;
+}
+
+.tabContent{ 
+    display: none;
+    border: 1px solid #ddd;
+}
+
+.tabContent h2{
+    display: none;
+}
+
+#notice{
+    padding: 20px;
+}
+
+#notice ul{
+    list-style:none;
+    margin-left: 0px;
+}
+
+#notice ul li{
+    font-size:18px;
+    line-height: 1.75;
+}
+
+#notice ul b{
+    color: RGB(0,176,240);
+}
+
+#notice li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#gallery ul li {
+    display: inline;
+}
+
+#gallery img{
+    width: 250px;
+    height: 110px;
+    cursor: pointer; 
+}
+
+.gr .caption{
+    position: absolute;
+    bottom: 203px;
+    width: 250px;
+    height: 110px;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0; 
+    transition: all 0.6s ease-in-out;
+    z-index: 10;
+}
+
+.gr li{
+    float: left;
+    margin-top: 7px;
+    margin-left: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gr li:hover .caption{
+    opacity: 1;
+    transform: translateY(200px);
+}
+
+h3{
+    margin: 5px;
+    color: #fff;
+}
+
+.gr .caption h2, .gr .caption p{
+    color: #fff;
+    text-align:center;
+    padding-top: 10px !important;
+    padding: 20px;
+    line-height: 15px;
+}
+
+#tab1:checked~#notice,
+#tab2:checked~#gallery {
+    display: block;
+}
+
+#links{
+    border: 1px solid #ddd;
+}
+
+#links ul{
+    padding: 0;
+    overflow: hidden;
+}
+
+#links ul li{
+    float:left;
+    width: 33%;
+    text-align: center;
+    margin-top: 50px;
+  
+}
+
+#links ul li a span{
+    display: block;
+    width: 120px;
+    height: 150px;
+    border-radius: 150px;
+    margin-left: 6px;
+    border:1px solid  #aaa;
+}
+
+#links ul li a p{
+    font-weight: 600;
+    color: #666;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+#quick-icon1{
+	background: rgb(192,235,248);
+    background: linear-gradient(0deg, rgba(192,235,248,1) 50%, rgba(255,255,255,1) 50%);
+}
+
+#quick-icon2{
+    background: rgb(255,255,255);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,176,240,1) 50%);
+}
+
+#quick-icon3{
+    background: rgb(255,255,255);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,0,255,1) 50%);
+}
+
+#quick-icon1:hover{
+    border: 5px solid RGB(192,235,248);
+}
+
+#quick-icon2:hover{
+    border: 5px solid RGB(0,176,240);
+}
+
+#quick-icon3:hover{
+    border: 5px solid rgba(0,0,255,1);
+}
+
+#prod{
+    font-size: 20px;
+    height: 50px;
+    border: 3px solid RGB(192,235,248);
+    font-family:"omyu_pretty";
+    margin-left: 5px;
+    cursor: pointer; 
+    margin-top: 20px;
+}
+
+#searcht{
+    width: 550px;
+    height: 50px;
+    padding: 5px;
+    border: 3px solid RGB(192,235,248);;
+    font-size: 20px;
+    overflow: auto;
+    position: absolute;
+    top: 20px;
+    left: 90px;
+    font-family:"omyu_pretty";
+    background-image: url(HTML/img/돋보기.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: right top; 
+    cursor: pointer; 
+}
+
+#ft{
+   margin-left: 5px;
+   margin-top: 80px;
+
+}
+
+.ft{
+    color:#666;
+    border-right: 1px solid #aaa;
+    padding: 5px 10px;
+    display: inline-flex;
+}
+
+#ad{
+   
+    color: #666;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+#fta{
+    border-right:none;
+}
+
+#contents h2{
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+#contents img{
+    width: 200px;
+    height: 200px;
+    border-radius: 150%;
+    float: left;
+    margin: 10px;
+    margin-top: 30px;
+    opacity:0.5; 
+}
+
+#contents ul{
+    margin: 0;
+}
+
+#contents a{
+    width: 200px;
+    height: 200px;
+    border-radius: 150%;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+    margin-top: 80px;
+    position: absolute;
+    top:34px;
+    z-index: 10;
+    color: #fff;
+    padding-top: 75px;
+}
+
+#contents a:hover{
+    cursor: pointer;
+    transform: rotate(30deg);
+}
+
+.recom{ 
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+}
+
+#tabMenu2 input[type="radio"]{
+    display: none; 
+}
+
+#tabMenu2 label{ 
+    display: inline-block;
+    margin: 0 0;
+    padding: 12px 20px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+#tabMenu2 label:hover{
+    color: #222;
+    cursor: pointer;
+}
+
+#tabMenu2 input:checked+label { 
+    color: RGB(255,255,101);
+    border: 1px solid #ddd;
+    background-color: black;
+}
+
+.tabContent2{ 
+    display: none;
+}
+
+.tabContent2 h2{
+    display: none;
+}
+
+#recom ul{
+    list-style:none;
+    margin-left: 0px;
+}
+
+#recom ul li{
+    font-size:18px;
+    line-height: 1.75;
+}
+
+.caption3{
+	text-align: center;
+	position: absolute;
+	top: 50px;
+}
+
+#recom2 ul li {
+    display: inline;
+}
+
+.recom img{
+    width: 250px;
+    height: 180px;
+    cursor: pointer; 
+    margin:25px;
+    margin-left: 0px;
+    margin-right: 56px;
+}
+
+#tree{
+    margin-right: 0px !important;
+}
+
+#recom2 img{
+    margin-left: 33px;
+    width: 500px;
+    height: 250px;
+}
+
+.recom .caption2{
+    position: absolute;
+    top: 170px;
+    width: 250px;
+    height: 110px;
+    margin:25px 0px;
+	margin-right: 5px;
+}
+    
+.recom li{
+    float: left;
+    margin-top: 7px;
+    margin-left: 10px;
+    color: #000;
+    position: relative;
+}
+    
+#room{
+	margin-left: 0px !important;
+}
+
+.recom .caption2 h3, .recom .caption2 p{
+    color: black;
+    text-align:center;
+    padding-top: 20px;
+    line-height: 15px;
+
+}
+    
+.recom .caption3 {
+    float: inline-end;
+    position: absolute;
+    width: 250px;
+    top:130px;
+    left: 23px;
+    cursor: pointer;
+}
+    
+.recom .caption3 h3, .recom .caption3 p {
+   color: white;
+   text-shadow:1.5px 1.5px 0 black;
+   font-size: larger;
+   font-weight:1.2px
+
+}
+    
+.recom .caption3 .black, .recom .caption3 .black {
+   color: black;
+   text-shadow:1.5px 1.5px 0 white;
+   font-size: larger;
+
+}
+
+#tab3:checked~#recom,
+#tab4:checked~#recom2 {
+    display: block;
+}
+
+@font-face {
+	font-family: 'LeeSeoyun';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'omyu_pretty';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'KCC-Ganpan';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a[title^="f"]{
+	background:url(/html/js/img/페북.png) no-repeat;
+  	float: right;
+   	display:inline;
+   	position: absolute;
+	padding: 50px 15px;
+	width: 30px;
+	margin: 5px;
+   	top: 100%;
+	right: 6%;
+}
+
+a[title^="i"]{
+    background:url(/html/js/img/인스타.jpg) no-repeat;
+    padding: 50px 15px;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:3%;
+}
+
+a[title^="k"]{
+    background:url(/html/js/img/카톡.png) no-repeat;
+    padding:15px;
+    background-size: cover;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:0%;
+}
+
+.more{
+	width: 50px;
+	height: 20px;
+   	border: none;
+   	background-color: white;
+    font-size: 12px;
+    margin-left: 690px;
+    cursor: pointer;
+}

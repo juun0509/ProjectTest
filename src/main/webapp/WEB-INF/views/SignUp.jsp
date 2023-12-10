@@ -38,17 +38,20 @@
             <li>
                 <label for="email"><img src="/domain/resources/img/이메일.png" id="mail"></label>
                 <input id="email" name="email" type="email" placeholder="이메일 abcd@domain.com" onblur="inputCheck(this)">
+                <!-- 인증코드가 성공적으로 발송될 경우 email 입력 받는 태그는 읽기만 가능한 속성으로 바뀜 -->
                 <button type="button" id="send">코드발송</button>
                 <span id="msgEmail" class="msg"></span>
             </li>
             <li>
                 <label for="auth_code"></label>
                 <input id="auth_code" name="auth_code" type="text" placeholder="인증코드" disabled="disabled">
+                <!-- 확인버튼을 눌렀을 때 인증코드가 일치하면 인증코드 입력란과 코드발송 버튼은 잠김 -->
                 <button type="button" id="confirm" name="confirm">확인</button>&nbsp;&nbsp;
                 <span id="msgConfirm"></span>
             </li>
         </ul>
 	    <button type="submit" id="submit">회원가입</button>
+	    <!-- 취소하기 버튼을 누르면 이메일 관련 요소들은 모두 초기화 -->
 	    <button type="reset" id="reset">취소하기</button>
 	</form>
 	<script>
@@ -169,12 +172,13 @@
 	                // 기본적으로 메시지를 초기화
 	            	msgElement.text('');
         	} // end switch
-	        return msgElement.text() === '';
+	        return msgElement.text() === ''; //폼체크 함수로 반환할 boolean 값
 		} // end inputCheck
 		
 		// 폼 제출 시 유효성 검사 함수
 	    function formCheck(frm) {
 	        // 모든 입력 필드에 대한 유효성 검사
+	        // 아래 변수들은 유효성 검사 메세지가 비어있을 경우 true 값 반환
 	        const idValid = inputCheck(frm.userId);
 	        const pwdValid = inputCheck(frm.pwd);
 	        const pwcValid = inputCheck(frm.pwc);

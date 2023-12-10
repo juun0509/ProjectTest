@@ -8,23 +8,7 @@ public class SearchCondition {
 	private String keyword = "";
 	private String option="content";
 	
-	
-	public Integer getPage() {
-		return page;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public Integer getPageSize() {
-		return pageSize;
-	}
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
-	}
-	
-	public Integer getOffset() {
-		return (page-1)*pageSize;
-	}
+	public SearchCondition() {}
 	
 	public SearchCondition(Integer page, Integer pageSize, String keyword, String option) {
 		super();
@@ -33,26 +17,53 @@ public class SearchCondition {
 		this.keyword = keyword;
 		this.option = option;
 	}
-	public SearchCondition() {}
+	
+	public Integer getPage() {
+		return page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+	public Integer getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+
 	public String getKeyword() {
 		return keyword;
 	}
+
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+
 	public String getOption() {
 		return option;
 	}
+
 	public void setOption(String option) {
 		this.option = option;
 	}
+
 	@Override
 	public String toString() {
 		return "SearchCondition [page=" + page + ", pageSize=" + pageSize + ", offset=" + getOffset() + ", keyword="
 				+ keyword + ", option=" + option + "]";
 	}
 	
-
+	public Integer getOffset() {
+		return (page-1)*pageSize;
+	}
+	
+	public String getQueryString() {
+		return getQueryString(page);
+	}
+	
 	public String getQueryString(Integer page) {
 		return UriComponentsBuilder.newInstance()
 			.queryParam("page",page)
@@ -60,12 +71,6 @@ public class SearchCondition {
 			.queryParam("option", option)
 			.queryParam("keyword", keyword)
 			.build().toString();
-		
-	}
-	public String getQueryString() {
-		return getQueryString(page);
 	}
 	
 }
-
-

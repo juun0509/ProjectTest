@@ -17,6 +17,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.join(user);
 	}
 	
+	// 유저 가져오기
+	@Override
+	public User select(String userId) throws Exception {
+		return userDao.select(userId);
+	}
+	
 	// 아이디 중복 확인
     @Override
     public int idCheck(String userId) throws Exception {

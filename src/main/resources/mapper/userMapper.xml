@@ -11,7 +11,7 @@
  	</insert>
  	
  	<!-- 아이디 선택 -->
- 	<select id="select" parameterType="User" resultType="User">
+ 	<select id="select" parameterType="String" resultType="User">
  		SELECT * FROM user WHERE userId = #{userId}
  	</select>
  	

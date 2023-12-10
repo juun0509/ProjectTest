@@ -1,0 +1,202 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+    font-family:"omyu_pretty";
+    text-align: center;
+    text-decoration: none;
+}
+        
+body{
+	width: 500px;
+	height: 1000px;
+	padding-bottom: 100px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	margin: 0 auto;
+	position: relative;
+}
+        
+#logo{
+    background-size: 200px 100px;
+    font-size: 26px;
+    font-family:"KCC-Ganpan";
+    text-align: center;
+    margin-top: 100px;
+    text-shadow: 1px 0 #666;
+    cursor: pointer;
+    background-color: white;
+	text-align:center;
+}
+
+#yy{
+	color: RGB(0,176,240);
+    font-family:"KCC-Ganpan";
+
+}
+
+#jj{
+	color: RGB(192,235,248);
+    font-family:"KCC-Ganpan";
+}
+
+#logo:hover{
+    cursor: pointer;
+}
+
+#logo h1{
+	font-family:"KCC-Ganpan";
+	width:280px;
+	margin:auto;
+}
+        
+input{
+    font-size: 15px; 
+    display:inline;
+    text-align: center;
+    margin-top:50px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.log{
+	text-align: left;
+    width: 350px;
+    height: 30px;
+    font-size: 22px;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+#l{
+	color: white;
+	border: 1px none;
+    background-color: RGB(0,176,240);
+    width: 363px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    position: flex;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#save1{
+    margin-right: 315px;
+}
+
+#l:hover{
+    cursor: pointer;
+}
+
+.side{
+    position:relative;
+    margin-top: 10px;
+    border: none;
+    width: 80px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.side:hover{
+    cursor: pointer;
+}
+
+#c{
+    padding-right: 7px;
+    border-right:1px solid #aaa;
+    margin-left: 198px;
+}
+
+#h{
+    position: absolute;
+    left: 68px;
+}
+
+#save{
+    width: 12px;
+    height: auto;
+}
+
+#p{
+    margin-left: 0;
+}
+
+img{
+    border:1px solid #aaa;
+    width: 30px;
+    height:35px;
+    position: absolute;
+    left: 95px;
+    border:0px none;
+}
+
+#userid img{
+    margin-top:30px;
+}
+
+#pwdimg{
+	margin-top:30px;
+}
+
+#log input:checked+input{
+    border: 1px solid red;
+}
+
+#kakao{
+    position: relative;
+}
+
+#kaka{
+	position:absolute;
+	top:80px;
+	left:200px;
+}
+
+#kakao input{
+    background-color: rgb(243, 230, 5);
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    width: 363px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 7px;
+    margin-top: 100px;
+    cursor: pointer;
+}
+
+#kakao img{
+    position: absolute;
+    top: 105px;
+    background-size: auto;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height:42px;
+    left: 105px;
+}
+
+hr{
+    margin-top:100px;
+}
+
+#ft{
+	margin-top:25px;
+}
+
+@font-face {
+	font-family: 'KCC-Ganpan';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'omyu_pretty';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}

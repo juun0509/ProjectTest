@@ -49,7 +49,7 @@ public class EmailController {
 				 "해당 인증 코드를 인증 코드 확인란에 기입하여 주세요.";
 		
 		try {
-			MimeMessage message = mailSender.createMimeMessage(); //Spring�뿉�꽌 �젣怨듯븯�뒗 mail API
+			MimeMessage message = mailSender.createMimeMessage(); //Spring에서 제공하는 mail API
 			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
 			helper.setFrom(setFrom);
         		helper.setTo(toMail);
