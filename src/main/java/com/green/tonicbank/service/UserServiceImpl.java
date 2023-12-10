@@ -23,4 +23,16 @@ public class UserServiceImpl implements UserService {
     	return userDao.idCheck(userId);
     }
     
+    // 닉네임 중복 확인
+    @Override
+    public int nickCheck(String nick) throws Exception {
+    	return userDao.nickCheck(nick);
+    }
+    
+    // 이메일 중복 확인
+    @Override
+    public int emailCheck(String email) throws Exception {
+    	return userDao.emailCheck(email);
+    }
+    
 }

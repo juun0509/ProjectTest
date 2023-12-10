@@ -23,4 +23,16 @@ public class UserDaoImpl implements UserDao {
 	public int idCheck(String userId) throws Exception {
 		return session.selectOne(namespace+"idCheck", userId);
 	}
+	
+	// 닉네임 중복 확인
+	@Override
+	public int nickCheck(String nick) throws Exception {
+		return session.selectOne(namespace+"nickCheck", nick);
+	}
+	
+	// 이메일 중복 확인
+	@Override
+	public int emailCheck(String email) throws Exception {
+		return session.selectOne(namespace+"emailCheck", email);
+	}
 }

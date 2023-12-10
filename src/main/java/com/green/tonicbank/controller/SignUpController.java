@@ -1,8 +1,5 @@
 package com.green.tonicbank.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,8 +46,18 @@ public class SignUpController {
 	public int duplId(String userId) throws Exception {
 	    int result = userSvc.idCheck(userId);
 	    if(result != 0)
-	    	System.out.println(userId+"는 중복된 아이디");
+	    	System.out.println(userId+"(은)는 중복된 아이디");
 	    return result;
+	}
+	
+	//닉네임 중복확인
+	@ResponseBody
+	@PostMapping("/duplNick")
+	public int duplNick(String nick) throws Exception {
+		int result = userSvc.nickCheck(nick);
+		if(result != 0)
+			System.out.println(nick+"(은)는 중복된 닉네임");
+		return result;
 	}
 	
 }

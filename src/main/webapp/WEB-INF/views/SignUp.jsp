@@ -52,15 +52,28 @@
 	    <button type="reset" id="reset">취소하기</button>
 	</form>
 	<script>
-		// let code;
-	
-		//중복확인
+		//아이디 중복확인
 		function duplId(fieldValue, callback) {
 		    $.ajax({
 		        url: "/domain/signUp/duplId",
 		        type: "POST",
 		        dataType: "json",
 		        data: { userId: fieldValue },
+		        success: function (result) {
+		        	console.log('result:'+result)
+		            // 콜백 함수 호출 시 불리언 값을 전달
+		            callback(result == 1);
+		        }
+		    });
+		}
+		
+		//닉네임 중복확인
+		function duplNick(fieldValue, callback) {
+		    $.ajax({
+		        url: "/domain/signUp/duplNick",
+		        type: "POST",
+		        dataType: "json",
+		        data: { nick: fieldValue },
 		        success: function (result) {
 		        	console.log('result:'+result)
 		            // 콜백 함수 호출 시 불리언 값을 전달
@@ -121,7 +134,15 @@
 	                } else if (!/^[a-zA-Z0-9가-힣]{2,10}$/.test(fieldValue)) {
 	                    msgElement.text('닉네임은 2~10자리 한글, 영문자, 숫자 중 1개 이상을 포함해야 합니다.');
 	                } else {
-	                    msgElement.text('');
+	                    // 비동기 함수 호출 및 콜백 함수로 결과 처리
+	                    duplNick(fieldValue, function (isDuplicate) {
+	                    	console.log(isDuplicate);
+	                        if (isDuplicate) {
+	                            msgElement.text('중복된 닉네임이 있습니다.');
+	                        } else {
+	                            msgElement.text('');
+	                        }
+	                    });
 	                }
 	                break;
 	            case 'email':
@@ -151,7 +172,7 @@
 	        return msgElement.text() === '';
 		} // end inputCheck
 		
-		// 폼 전체 유효성 검사 함수
+		// 폼 제출 시 유효성 검사 함수
 	    function formCheck(frm) {
 	        // 모든 입력 필드에 대한 유효성 검사
 	        const idValid = inputCheck(frm.userId);
@@ -207,14 +228,13 @@
 	        		$("#auth_code").attr("disabled", false);
 	        		alert("인증 코드가 입력하신 이메일로 전송 되었습니다.");
 	       		},
-	       		error: function(xhr, status, error) {
-	       	        // Ajax 요청이 실패한 경우
-	       	        console.log("AJAX 오류 발생");
-	       	        console.log("상태: " + status);
-	       	        console.log("에러: " + error);
-
-	       	        // 실패 시 메시지를 화면에 표시
-	       	        $('#msgEmail').text("유효하지 않는 이메일입니다.");
+	       		error: function(xhr, status, error) { // Ajax 요청이 실패한 경우
+	       			var responseText = xhr.responseText;
+	       			if (responseText == 'DUPLICATED_EMAIL') {
+	       				$('#msgEmail').text("중복된 이메일입니다.");
+	       			} else {
+	       				$('#msgEmail').text("유효하지 않은 이메일입니다.");
+	       			}
 	       	    }
 	        }); //end Ajax
 	    });
