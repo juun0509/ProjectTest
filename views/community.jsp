@@ -264,7 +264,7 @@ a.check {
 				<option value="T" ${ph.sc.option=='T'? "selected" : "" }>제목</option>
 				<option value="C" ${ph.sc.option=='C'? "selected" : "" }>내용</option>
 				<option value="W" ${ph.sc.option=='W'? "selected" : "" }>글쓴이</option>
-			</select> <img src="/html/js/img/돋보기.png"> <input type="text"
+			</select> <img src="${pageContext.request.contextPath}/resources/img/돋보기.png"> <input type="text"
 				name="keyword" value="${ph.sc.keyword}" placeholder="검색어를 입력해주세요">
 			<!--  onsubmit="return searchCheck(this)" -->
 			<button id="sBtn" class="sBtn" type="button">검색</button>

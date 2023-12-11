@@ -240,7 +240,7 @@ hr {
 			<hr>
 
 			<div id="product">
-				<img src="/html/js/img/slide1.jpg" alt="" class="img">
+				<img src="${pageContext.request.contextPath}/resources/img/slide1.jpg" alt="" class="img">
 
 				<h4>${dto.product}</h4>
 				<div>${dto.option}</div>
@@ -252,7 +252,7 @@ hr {
 
 
 			<div id="like">
-				좋아요 <img src="/html/js/img/qlsgkxm.png" id="heart" class="heart"
+				좋아요 <img src="${pageContext.request.contextPath}/resources/img/qlsgkxm.png" id="heart" class="heart"
 					style="cursor: pointer;" width="20px;" height="20px;"> <span
 					id="likeNum">5</span>
 				</td>
