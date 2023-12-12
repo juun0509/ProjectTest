@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:"omyu_pretty";
+}
+
+#con{
+    width: 850px;
+    margin: 0 auto;
+}
+#header {
+
+height: 150px;
+}
+#header h1{
+padding-top: 95px;
+text-align: center;
+
+}
+#main {
+background: #f2f4f7;
+height: 200px;
+border-bottom: 1px solid black;
+padding: 10px;
+}
+#sel{
+height: 40px;
+}
+#sel p{
+float: inline-end;
+height: 30px;
+font-size: 18px;
+
+}
+.selTag{
+height: 30px;
+float: inline-start;
+margin-right: 10px;
+cursor: pointer;
+}
+.search{
+height: 30px;
+background-color: RGB(0,176,240);
+color: white;
+border: none;
+font-family:"omyu_pretty";
+font-size: 18px;
+padding: 5px;
+cursor: pointer;
+
+width: 90px;
+}
+
+#field2{
+margin-top: 20px;
+padding: 10px;
+text-align: center;
+}
+#field2 p{
+height: 30px;
+font-size: 18px;
+
+}
+.sort{
+height: 30px;
+background-color: black;
+color: white;
+border: none;
+font-family:"omyu_pretty";
+font-size: 18px;
+padding: 5px;
+cursor: pointer;
+width: 90px;
+}
+#main2{
+padding: 10px;
+}
+#field3{
+padding: 10px;
+}
+#field3 li{
+list-style: none;
+margin:10px 0px;
+font-size: 18px;
+
+}
+#field3 img{
+width: 150px;
+height: 100px;
+}
+
+.view{
+margin-top: 20px;
+font-size: 18px;
+border: none;
+float: inline-end;
+
+}
+.view:hover{
+cursor: pointer;
+color: rgba(0,176,240,1);
+}
+
+@font-face {
+font-family: 'KCC-Ganpan';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'omyu_pretty';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
