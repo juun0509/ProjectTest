@@ -8,11 +8,11 @@
 	<title>Insert title here</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://kit.fontawesome.com/bf7f5ff0d8.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/domain/resources/css/LogIn.css">
+	<link rel="stylesheet" href="/tonicbank/resources/css/login.css">
 </head>
 <body>
 	<div id="logo"><a href="<c:url value='/'/>"><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></a></div>
-	<form id="log" action="<c:url value='/logIn/logIn'/>" method="post" onsubmit="return formCheck(this);">
+	<form id="log" action="<c:url value='/login/login'/>" method="post" onsubmit="return formCheck(this);">
 		<div id="log"></div>
 		<div id="msg">
 			<c:if test="${not empty param.msg }">
@@ -40,7 +40,7 @@
 		<hr>
 		<div id="kakao">
 			<p id="kaka">카카오 고객이신가요?</p>
-			<img src="/domain/resources/img/카카오.png">
+			<img src="/tonicbank/resources/img/카카오.png">
 			<input type="submit" id="k" name="tabs" onclick="location.replace('main')" value="카카오로 로그인">
 		</div>
 		<p id="ft">@tonicbank Corp. All rights reserved.</p>

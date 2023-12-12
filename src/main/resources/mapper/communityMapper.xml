@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.green.tonicbank.Community">
+
+	<delete id="deleteAll">
+		delete from community
+	</delete>
+	
+	<delete id="delete" parameterType="map">
+		delete from community where communityId=#{communityId} and userId=#{userId}
+	</delete>
+	
+	<insert id="insert" parameterType="Community">
+		insert into community (category, title, content, userId, tonicId) 
+		values (#{category}, #{title}, #{content}, #{userId}, #{tonicId});
+	</insert>
+
+	<select id="selectAll" resultType="Community" parameterType="SearchCondition">
+		SELECT community.*, user.nick FROM community 
+		JOIN user ON community.userId = user.userId 
+		<include refid="searchCondition" />
+		<include refid="categoryFilter" />
+		 order by communityId desc
+		 limit #{offset}, #{pageSize}
+	</select>
+	
+	<!-- 카테고리 -->
+	<sql id="categoryFilter">
+		<choose>
+			<when test='orderType == "인기"'>
+				and likeCount >= 10 
+			</when>
+			<when test='orderType == "자유"'>
+				 and category="자유"
+			</when>
+			<when test='orderType == "후기"'>
+				 and category="후기"
+			</when>
+		</choose>
+	</sql>
+	
+	<!-- 검색 -->
+	<sql id="searchCondition">
+		<choose>
+			<when test='option=="T"'>
+				where title like concat('%', #{keyword}, '%')
+			</when>
+			<when test='option=="C"'>
+				where content like concat('%', #{keyword}, '%')
+			</when>
+			<when test='option=="W"'>
+				<!-- where userId like concat('%', #{keyword}, '%') -->
+				INNER JOIN user ON community.userId = user.userId
+				WHERE user.nick like concat('%', #{keyword}, '%')
+			</when>
+			<otherwise>
+				where (title like concat('%', #{keyword}, '%')
+ 				or content like concat('%', #{keyword}, '%'))
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="select" parameterType="Integer" resultType="Community">
+		SELECT community.*, user.nick FROM community 
+		JOIN user ON community.userId = user.userId 
+		where communityId=#{communityId}
+	</select>
+	
+	<select id="count" resultType="int" parameterType="SearchCondition">
+		select count(*) from community 
+		<include refid="searchCondition" />
+		<include refid="categoryFilter" />
+	</select>
+	
+</mapper>

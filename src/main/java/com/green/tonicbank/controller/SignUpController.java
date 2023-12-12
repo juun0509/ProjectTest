@@ -21,7 +21,12 @@ public class SignUpController {
 	
 	@GetMapping("/join")
 	public String join() {
-		return "SignUp";
+		return "signUp";
+	}
+	
+	@GetMapping("/test")
+	public String zz() {
+		return "signUp";
 	}
 	
 	@PostMapping("join")

@@ -1,99 +1,87 @@
 package com.green.tonicbank.model;
 
 public class PageHandler {
-
-	
-	private SearchCondition sc;
 	
 	private int totalCnt; 
-	private int naviSize = 10;
 	private int totalPage;
-
+	private int naviSize = 10;
 	private int beginPage; 
 	private int endPage; 
 	private boolean showPrev; 
 	private boolean showNext; 
+	private SearchCondition sc;
+	
+	public PageHandler() {}
 	
 	public PageHandler(int totalCnt, SearchCondition sc) {
 		this.totalCnt=totalCnt;
 		this.sc = sc;
 		doPaging(totalCnt, sc);
 	}
+	
 	public int getTotalCnt() {
 		return totalCnt;
 	}
-
 
 	public void setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
 	}
 
-
-	public int getNaviSize() {
-		return naviSize;
-	}
-
-
-	public void setNaviSize(int naviSize) {
-		this.naviSize = naviSize;
-	}
-
-
 	public int getTotalPage() {
 		return totalPage;
 	}
-
 
 	public void setTotalPage(int totalPage) {
 		this.totalPage = totalPage;
 	}
 
+	public int getNaviSize() {
+		return naviSize;
+	}
 
-	public SearchCondition getSc() {
-		return sc;
+	public void setNaviSize(int naviSize) {
+		this.naviSize = naviSize;
 	}
-	public void setSc(SearchCondition sc) {
-		this.sc = sc;
-	}
+
 	public int getBeginPage() {
 		return beginPage;
 	}
-
 
 	public void setBeginPage(int beginPage) {
 		this.beginPage = beginPage;
 	}
 
-
 	public int getEndPage() {
 		return endPage;
 	}
-
 
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
 
+	public SearchCondition getSc() {
+		return sc;
+	}
+
+	public void setSc(SearchCondition sc) {
+		this.sc = sc;
+	}
 
 	public boolean isShowPrev() {
 		return showPrev;
 	}
 
-
 	public void setShowPrev(boolean showPrev) {
 		this.showPrev = showPrev;
 	}
-
 
 	public boolean isShowNext() {
 		return showNext;
 	}
 
-
 	public void setShowNext(boolean showNext) {
 		this.showNext = showNext;
 	}
-
 
 	public void doPaging(int totalCnt, SearchCondition sc) {
 		this.totalCnt=totalCnt;		
@@ -113,12 +101,11 @@ public class PageHandler {
 		System.out.println(showNext?">":"");
 	}
 
-
 	@Override
 	public String toString() {
 		return "PageHandler [sc=" + sc + ", totalCnt=" + totalCnt + ", naviSize=" + naviSize + ", totalPage="
 				+ totalPage + ", beginPage=" + beginPage + ", endPage=" + endPage + ", showPrev=" + showPrev
 				+ ", showNext=" + showNext + "]";
 	}
-	public PageHandler() {}
+	
 }

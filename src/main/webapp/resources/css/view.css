@@ -1,0 +1,206 @@
+@charset "UTF-8";
+
+* {
+	font-family: 'omyu_pretty';
+}
+
+button {
+	cursor: pointer;
+}
+
+#view {
+	width: 1200px;
+}
+
+.img {
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+hr {
+	border: 0.1px solid black;
+}
+
+#product {
+	padding-top: 30px;
+	height: 100px;
+}
+
+#product h4 {
+	margin-top: 5px;
+	padding-left: 110px;
+	font-size: large;
+}
+
+#product div {
+	padding-left: 110px;
+}
+
+#cont {
+	margin-top: 25px;
+	font-size: 20px;
+	line-height: 25px;
+	margin-bottom: 40px;
+}
+
+#like {
+	width: 150px;
+	text-align: center;
+	background-color: #EEEEEE;
+	color: #666;
+	font-size: 23px;
+	padding-top: 10px;
+	height: 35px;
+	border-radius: 15% 15% 15% 15%/50% 50% 50% 50%;
+	margin: auto;
+}
+
+#view button {
+	margin-top: 5px;
+	background-color: #666;
+	color: white;
+	border: none;
+	font-size: 16px;
+	width: 60px;
+	height: 28px;
+	border-radius: 5%;
+}
+
+#listView {
+	float: right;
+}
+
+#sendBtn {
+	margin-top: 5px;
+	float: right;
+	background-color: #666;
+	color: white;
+	border: none;
+	font-size: 16px;
+	width: 60px;
+	height: 28px;
+	border-radius: 5%;
+}
+
+#comment {
+	margin-top: 90px;
+	width: 1200px;
+}
+
+#comment h3 {
+	font-size: 21px;
+	margin-bottom: 10px;
+}
+
+#commentText {
+	width: 1190px;
+	min-height: 150px;
+	font-size: 18px;
+	padding: 5px;
+}
+
+#commentList li {
+	list-style: none;
+}
+
+#commentList ul {
+	padding: 0px;
+}
+
+#commentbox {
+	font-size: large;
+	width: 1200px;
+}
+
+.commenter {
+	float: inline-start;
+}
+
+.update {
+	float: inline-end;
+}
+
+#commentbox button {
+	background-color: white;
+	border: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+#commentbox button:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.commentView {
+	float: inline-end;
+}
+
+#coCommentbox {
+	padding-left: 30px;
+	font-size: 17px;
+}
+
+#coCommentbox button {
+	background-color: white;
+	border: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 17px;
+}
+
+#coCommentbox button:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.modBtn {
+	padding-left: 0px;
+}
+
+#coCommentText {
+	padding-top: 15px;
+	padding-left: 30px;
+	font-size: 17px;
+	line-height: 30px;
+}
+
+#coCommentText textarea {
+	width: 1160px;
+	min-height: 150px;
+	font-size: 17px;
+	padding: 5px;
+}
+
+#coCommentText button {
+	margin-top: 5px;
+	float: right;
+	background-color: #666;
+	color: white;
+	border: none;
+	margin-left: 10px;
+	font-size: 16px;
+	width: 60px;
+	height: 28px;
+	border-radius: 5%;
+}
+
+@font-face {
+	font-family: 'KCC-Ganpan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'omyu_pretty';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}

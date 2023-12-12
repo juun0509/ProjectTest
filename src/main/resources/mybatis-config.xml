@@ -4,9 +4,8 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-
 	<typeAlias alias="User" type="com.green.tonicbank.model.User"/>
 	<typeAlias alias="SearchCondition" type="com.green.tonicbank.model.SearchCondition"/>
-	
+	<typeAlias alias="Community" type="com.green.tonicbank.model.Community"/>
 </typeAliases>	
 </configuration>

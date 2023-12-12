@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link rel="stylesheet" href="/domain/resources/css/SignUp.css">
+	<link rel="stylesheet" href="/tonicbank/resources/css/signUp.css">
 </head>
 <body>
 	<div id="logo"><a href="<c:url value='/'/>"><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></a></div>
@@ -15,28 +15,28 @@
     <form action='<c:url value="/signUp/join"/>' method="post" id="signup" onsubmit="return formCheck(this)">
         <ul>
             <li>
-                <label for="userId"><img src="/domain/resources/img/아이디.png"></label>
+                <label for="userId"><img src="/tonicbank/resources/img/아이디.png"></label>
                 <input id="userId" name="userId" type="text" placeholder="아이디 3~16자리 영문자/숫자, 영문자는 반드시 포함" onblur="inputCheck(this)">&nbsp;&nbsp;
                 <span id="msgUserId" class="msg"></span>
             </li>
             <li>
-                <label for="pwd"><img src="/domain/resources/img/비번.png"></label>
+                <label for="pwd"><img src="/tonicbank/resources/img/비번.png"></label>
                 <input id="pwd" name="pwd" type="password" placeholder="비밀번호 8~20자리 영문자/숫자/특수문자" onblur="inputCheck(this)">&nbsp;&nbsp;
                 <span id="msgPwd" class="msg"></span>
             </li>
             <li>
-                <label for="pwc"><img src="/domain/resources/img/비번.png"></label>
+                <label for="pwc"><img src="/tonicbank/resources/img/비번.png"></label>
                 <input id="pwc" name="pwc" type="password" placeholder="비밀번호 확인" onblur="inputCheck(this)">&nbsp;&nbsp;
                 <span id="msgPwc" class="msg"></span>
             </li>
   
             <li>
-                <label for="nick"><img src="/domain/resources/img/아이디.png"></label>
+                <label for="nick"><img src="/tonicbank/resources/img/아이디.png"></label>
                 <input id="nick" name="nick" type="text"  placeholder="닉네임 2~10자리 한글/영문자/숫자" onblur="inputCheck(this)">&nbsp;&nbsp;
                 <span id="msgNick" class="msg"></span>
             </li>
             <li>
-                <label for="email"><img src="/domain/resources/img/이메일.png" id="mail"></label>
+                <label for="email"><img src="/tonicbank/resources/img/이메일.png" id="mail"></label>
                 <input id="email" name="email" type="email" placeholder="이메일 abcd@domain.com" onblur="inputCheck(this)">
                 <!-- 인증코드가 성공적으로 발송될 경우 email 입력 받는 태그는 읽기만 가능한 속성으로 바뀜 -->
                 <button type="button" id="send">코드발송</button>
@@ -58,7 +58,7 @@
 		//아이디 중복확인
 		function duplId(fieldValue, callback) {
 		    $.ajax({
-		        url: "/domain/signUp/duplId",
+		        url: "/tonicbank/signUp/duplId",
 		        type: "POST",
 		        dataType: "json",
 		        data: { userId: fieldValue },
@@ -73,7 +73,7 @@
 		//닉네임 중복확인
 		function duplNick(fieldValue, callback) {
 		    $.ajax({
-		        url: "/domain/signUp/duplNick",
+		        url: "/tonicbank/signUp/duplNick",
 		        type: "POST",
 		        dataType: "json",
 		        data: { nick: fieldValue },
@@ -219,7 +219,7 @@
 	    		
 	    	//Ajax로 전송
 	        $.ajax({
-	        	url : '/domain/EmailAuth',
+	        	url : '/tonicbank/EmailAuth',
 	        	data : {
 	        		email : email
 	        	},

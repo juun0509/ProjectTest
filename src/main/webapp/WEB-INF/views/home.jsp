@@ -5,7 +5,7 @@
 <head>
 	<title>Home</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="/domain/resources/css/home.css">
+	<link rel="stylesheet" href="/tonicbank/resources/css/home.css">
 </head>
 <body>
 	<div id="con">
@@ -33,10 +33,10 @@
 
 	        <div id="slideshow">
 	        	<div id="slides" class="slides">
-	          		<img src="/domain/resources/img/slide1.jpg" alt="" class="slide"><div class="slidet"><h2>가을철 건강관리 꿀팁!<br>영양제 추천</h2><span><br> 잘 고르는 TIP 알아보기</span></div>
-	            	<img src="/domain/resources/img/slide5.jpg" alt="" class="slide"><div class="slidet"><h2>30대 남자</h2><span>필수 영양제 추천<br> 2023 인기순위 TOP9!</span></div>
-	            	<img src="/domain/resources/img/slide4.jpg" alt="" class="slide"><div class="slidet"><h2>센트룸 실버 우먼</h2><span>실버세대 여성을 위한 맞춤 영양설계!<br>멀티비타민</span></div>
-	            	<img src="/domain/resources/img/slide2.jpg" alt="" class="slide"><div class="slidet"><h2>칼슘영양제</h2><span>뼈와 치아의 구성요소 칼슘<br>추천 건강가이드</span></div>
+	          		<img src="/tonicbank/resources/img/slide1.jpg" alt="" class="slide"><div class="slidet"><h2>가을철 건강관리 꿀팁!<br>영양제 추천</h2><span><br> 잘 고르는 TIP 알아보기</span></div>
+	            	<img src="/tonicbank/resources/img/slide5.jpg" alt="" class="slide"><div class="slidet"><h2>30대 남자</h2><span>필수 영양제 추천<br> 2023 인기순위 TOP9!</span></div>
+	            	<img src="/tonicbank/resources/img/slide4.jpg" alt="" class="slide"><div class="slidet"><h2>센트룸 실버 우먼</h2><span>실버세대 여성을 위한 맞춤 영양설계!<br>멀티비타민</span></div>
+	            	<img src="/tonicbank/resources/img/slide2.jpg" alt="" class="slide"><div class="slidet"><h2>칼슘영양제</h2><span>뼈와 치아의 구성요소 칼슘<br>추천 건강가이드</span></div>
 	            	<button class="btn" id="prev">&lang;</button>
 	            	<button class="btn" id="next">&rang;</button>
 	        	</div>
@@ -44,13 +44,13 @@
 
 	        <div id="side">
 	            <p>영양제를 더 안전하게 이용하세요</p>
-	            <c:set var="logInOutLink" value="${empty sessionScope.userId? '/logIn/logIn' :'/logIn/logOut' }"/>
-				<c:set var="logInOut" value="${empty sessionScope.userId?'로그인':'로그아웃' }"/>
+	            <c:set var="loginoutLink" value="${empty sessionScope.userId? '/login/login' :'/login/logout' }"/>
+				<c:set var="loginout" value="${empty sessionScope.userId?'로그인':'로그아웃' }"/>
 	            <input type="submit" class="side" id="my" name="tabs" value="마이페이지">
 	            <c:if test="${empty sessionScope.userId }">
 	            	<input type="submit" class="side" id="h" name="tabs" onclick="location.href='<c:url value="/signUp/join"/>'" value="회원가입">
             	</c:if>
-	            <input type="submit" class="side" id="h" name="tabs" onclick="location.href='<c:url value="${logInOutLink }"/>'" value="${logInOut }" checked>
+	            <input type="submit" class="side" id="h" name="tabs" onclick="location.href='<c:url value="${loginoutLink }"/>'" value="${loginout }" checked>
 	            <c:if test="${not empty sessionScope.userId }">
 					<input type="submit" class="side" id="l" name="tabs" value="${sessionScope.nick}">
 				</c:if>
@@ -73,40 +73,39 @@
 	                    <button type="submit" class="more">더보기</button>
 	                </ul>
 	            </div>
-	
 	            <div id="gallery" class="tabContent">
 	            	<h2>자유게시판</h2>
 	            	<ul class="gr">
 	           			<li>
-	                    	<img src="/domain/resources/img/비오비타.jpg">
+	                    	<img src="/tonicbank/resources/img/비오비타.jpg">
 	                    	<div class="caption">
 	                        	<h3>닉네임: 비타</h3>
 	                        	<p>제품명:비오비타<br>아기 유산균 비오비타 베베 두 달 후기입니다</p>
 	                   		</div>
 						</li>
 						<li>
-	                		<img src="/domain/resources/img/관절.jpg">
+	                		<img src="/tonicbank/resources/img/관절.jpg">
 	                    	<div class="caption">
 		                        <h3>닉네임: 팔팔</h3>
 		                        <p>제품명: 씨스팡 관절팔팔<br>씨스팡 관절팔팔 초록잎홍합추출오일 후기</p>
 	                    	</div>
 						</li>
 						<li>
-							<img src="/domain/resources/img/밀크.jpg">
+							<img src="/tonicbank/resources/img/밀크.jpg">
 							<div class="caption">
 		                        <h3>닉네임: 밀크</h3>
 		                        <p>제품명:밀크씨슬<br>간 겅강 챙겨보려 합니다. 뉴트리코어 유기농 밀크씨슬 후기</p>
 		                    </div>
 						</li>
 						<li>
-							<img src="/domain/resources/img/메가.jpg">
+							<img src="/tonicbank/resources/img/메가.jpg">
 	                    	<div class="caption">
 		                        <h3>닉네임: 메가</h3>
 		                        <p>제품명: 메가도스<br>비타민c 메가도스 6개월 느낀점</p>
 	                    	</div>
 	                	</li>
 	                    <li>
-							<img src="/domain/resources/img/가르.jpg">
+							<img src="/tonicbank/resources/img/가르.jpg">
 							<div class="caption">
 								<h3>닉네임: 니아</h3>
 								<p>제품명: 가르시니아 캄보자아<br>195일동안 영양제 먹으면서 다이어트 한 결과 대공개!</p>
@@ -115,7 +114,7 @@
 	                </ul>
 	            </div>
 	        </div>
-
+	        
 	        <div id="links">
 	            <ul>
 	                <li>
@@ -156,33 +155,32 @@
 	            <label for="tab3">맞춤 추천</label>
 	            <input type="radio" id="tab4" name="tab">
 	            <label for="tab4">떴다! 방영상품</label>
-	
 	            <div id="recom" class="tabContent2">
 	                <h2>가을시즌 추천</h2>
 	                <ul class="recom">
 	                    <li id="room">
-	                    	<img src="/domain/resources/img/센트룸.jpg">
+	                    	<img src="/tonicbank/resources/img/센트룸.jpg">
 	                    	<div class="caption2">
 		                        <h3>닥터린</h3>
 		                        <p>송중기 초임계 알티지(rTG) 오메가3 <br> <br>19,000원~</p>
 		                    </div>
 	                    </li>
 	                    <li>
-	                    	<img src="/domain/resources/img/고려은단.jpg">
+	                    	<img src="/tonicbank/resources/img/고려은단.jpg">
 		                    <div class="caption2">
 		                        <h3>고려은단</h3>
 		                        <p>비타민 13종 미네랄 10종 올인원!<br> 멀티비타민 <br><br>39,000원~</p>
 		                    </div>
 	                    </li>
 	                    <li>
-		                    <img src="/domain/resources/img/닥터린.jpg">
+		                    <img src="/tonicbank/resources/img/닥터린.jpg">
 		                    <div class="caption2">
 		                        <h3>센트룸 실버 우먼</h3>
 		                        <p>실버세대 여성을 위한 맞춤 영양설계!<br>멀티비타민<br> <br>9,000원~</p>
 		                    </div>
 	                	</li>
 	                    <li>
-		                    <img src="/domain/resources/img/메디트리.jpg" id="tree">
+		                    <img src="/tonicbank/resources/img/메디트리.jpg" id="tree">
 		                    <div class="caption2">
 		                        <h3>메디트리</h3>
 		                        <p>유기농 고함량<br>비오틴+비타민B12+셀렌<br><br>29,000원~</p>
@@ -190,19 +188,18 @@
 	                	</li>
 	                </ul>
 	            </div>
-	
 	            <div id="recom2" class="tabContent2">
 	                <h2>떴다! 방영상품</h2>
 	                <ul class="recom">
 	                    <li>
-	                    	<img src="/domain/resources/img/익스트림.jpg" id="new" onclick="you('https://www.youtube.com/watch?v=WEMDd0-c9fY','pop','500','400')">
+	                    	<img src="/tonicbank/resources/img/익스트림.jpg" id="new" onclick="you('https://www.youtube.com/watch?v=WEMDd0-c9fY','pop','500','400')">
 		                    <div class="caption3">
 		                        <h3>익스트림 블랙마카<br>1800 김종국 흑마늘 야관문 흑삼</h3>
 		                        <p>34900원</p>
 		                    </div>
 	                    </li>
 	                    <li>
-		                    <img src="/domain/resources/img/옵티.jpg">
+		                    <img src="/tonicbank/resources/img/옵티.jpg">
 		                    <div class="caption3">
 		                        <h3 class="black">옵티머스트 3+1개월<br> 17차 완판 100원 이벤트!</h3>
 		                        <p class="black">179,500원</p>
@@ -211,16 +208,18 @@
 	                </ul>
 	            </div>
 			</div>
+			
 	        <div id="contents">
 	            <h2>인기 태그</h2>
 				<ul>
-					<li><a>피로&면역</a><img src="/domain/resources/img/피로색.png"></li>
-	                <li><a>피부</a><img src="/domain/resources/img/피부색.png"></li>
-	                <li><a>항산화</a><img src="/domain/resources/img/항산화색.png"></li>
-	                <li><a>위장</a><img src="/domain/resources/img/장색.png"></li>
-	                <li><a>다이어트</a><img src="/domain/resources/img/다이어트색.png"></li>
+					<li><a>피로&면역</a><img src="/tonicbank/resources/img/피로색.png"></li>
+	                <li><a>피부</a><img src="/tonicbank/resources/img/피부색.png"></li>
+	                <li><a>항산화</a><img src="/tonicbank/resources/img/항산화색.png"></li>
+	                <li><a>위장</a><img src="/tonicbank/resources/img/장색.png"></li>
+	                <li><a>다이어트</a><img src="/tonicbank/resources/img/다이어트색.png"></li>
 				</ul>
 	        </div>
+	        
 	        <footer>
 	            <div id="ft">
 		            <ul>

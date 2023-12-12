@@ -20,23 +20,23 @@ import com.green.tonicbank.model.User;
 import com.green.tonicbank.service.UserService;
 
 @Controller
-@RequestMapping("/logIn")
-public class LogInController {
+@RequestMapping("/login")
+public class LoginController {
 	
 	@Autowired
 	UserService userSvc;
 	
-	@GetMapping("/logIn")
+	@GetMapping("/login")
 	public String logInPage(@CookieValue(value="JSESSIONID", required=false) String sessionId, HttpServletRequest req, SearchCondition sc, Model m) {
 		System.out.println("쿠키에 저장된 세션 id : " + sessionId);
 		String fromURL = req.getRequestURL()+sc.getQueryString();
 		System.out.println("이전 URL : " + fromURL);
 		fromURL  = (String)req.getHeader("REFERER");
 		m.addAttribute("fromURL", fromURL);
-		return "LogIn";
+		return "login";
 	}
 	
-	@PostMapping("/logIn")
+	@PostMapping("/login")
 	public String logIn(User user, String fromURL, boolean rememberId, Model m, HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		System.out.println("이전 URL : " + fromURL);
 		String userId = user.getUserId();
@@ -55,7 +55,7 @@ public class LogInController {
 		return "redirect:"+fromURL;
 	}
 	
-	@RequestMapping("/logOut")
+	@RequestMapping("/logout")
 	public String logOut(HttpSession session, HttpServletRequest req) {
 		String fromURL  = (String)req.getHeader("REFERER");
 		session.invalidate();
