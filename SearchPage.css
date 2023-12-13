@@ -1,0 +1,317 @@
+@charset "UTF-8";
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#con{
+    width: 1200px;
+    margin: 0 auto;
+}
+#container{
+
+    display: grid;
+    grid-template-columns: repeat(6,200px);
+    grid-template-rows: repeat(16,100px);
+    grid-template-areas:
+    "box1 box2 box2 box2 box3 box3"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+    "box5 box5 box5 box5 box5 box5"
+
+    "box4 box4 box4 box4 box4 box4";
+}
+
+#logo{
+    grid-area:box1;
+    background-size: 200px 100px;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 20px; 
+    font-family:"KCC-Ganpan";
+    text-shadow: 1px 0 #666;
+    width: 200px;
+    height: 100px;
+}
+#yy{
+    color: RGB(0,176,240);
+    
+}
+#jj{
+    color: RGB(192,235,248);
+}
+#logo:hover{
+    cursor: pointer;
+}
+
+#search{
+    grid-area: box2;
+    font-family:"omyu_pretty";
+    width: 635px;
+    height: 100px;
+    border: none;
+    margin-left: 30px;
+
+}
+
+#prod{
+    font-size: 20px;
+    height: 50px;
+    border: 3px solid RGB(192,235,248);
+    font-family:"omyu_pretty";
+    margin-left: 0px;
+    cursor: pointer; 
+    margin-top: 20px;
+    float: inline-start;  
+    
+}
+#searcht{
+    width: 550px;
+    height: 50px;
+    padding: 5px;
+    border: 3px solid RGB(192,235,248);;
+    font-size: 20px;
+    overflow: auto;
+    font-family:"omyu_pretty";
+    background-image: url(/tonicbank/resources/img/돋보기.png);
+    background-size: 33px;
+    background-repeat: no-repeat;
+    background-position: right; 
+    cursor: pointer; 
+    float: inline-end;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#side{
+    grid-area: box3;
+    border-radius: 3%;
+    font-family:"omyu_pretty";
+}
+
+
+#side p{
+    text-align: right;
+    color: #000;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+
+.side{
+    float: right;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background-color: white;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:"omyu_pretty";
+}
+.side:hover{
+    cursor: pointer;
+}
+
+
+
+
+#result{
+    grid-area: box5;
+    font-family:"omyu_pretty";
+    width: 1200px;
+    height: 1300px;
+    
+}
+
+#result h2{
+    padding: 10px;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    margin-bottom: 70px;
+   
+    
+}
+
+
+
+
+
+.result{
+    margin-top: 30px;
+    padding: 10px;
+}
+.result h4{
+    margin-bottom: 10px;
+}
+
+.result div{
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    padding: 15px;
+    height: 180px;
+  
+}
+.result img{
+    width:250px;
+    height: 150px;
+    float: left;
+    padding-right: 15px;
+}
+.result ul{
+    display: inline;
+}
+.result li{
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.result a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.result>h4>a{
+    margin-bottom: 10px;
+    float: inline-end;
+}
+
+
+
+
+
+
+
+footer{
+    grid-area: box4;
+    font-family:"omyu_pretty";
+    position: relative;
+}
+
+
+
+
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none; 
+    display:inline;
+}
+
+
+#yy{
+    color: RGB(0,176,240);
+    
+}
+#jj{
+    color: RGB(192,235,248);
+}
+#logo:hover{
+    cursor: pointer;
+}
+
+#ft{
+   margin-left: 5px;
+   margin-top: 80px;
+
+}
+.ft{
+    color:#666;
+    border-right: 1px solid #aaa;
+    padding: 5px 10px;
+    display: inline-flex;
+}
+#ad{
+   
+    color: #666;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+#fta{
+    border-right:none;
+}
+
+
+
+
+@font-face {
+font-family: 'LeeSeoyun';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'omyu_pretty';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'KCC-Ganpan';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+a[title^="f"]{
+    background:url(/tonicbank/resources/img/페북.png) no-repeat;
+  float: right;
+   display:inline;
+   position: absolute;
+   padding: 50px 15px;
+   width: 30px;
+   margin: 5px;
+   top: 100%;
+   right: 6%;
+}
+a[title^="i"]{
+    background:url(/tonicbank/resources/img/인스타.jpg) no-repeat;
+    padding: 50px 15px;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:3%;
+}
+a[title^="k"]{
+    background:url(/tonicbank/resources/img/카톡.png) no-repeat;
+    padding:15px;
+    background-size: cover;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:0%;
+}
