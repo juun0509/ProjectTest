@@ -45,7 +45,7 @@ public class LoginController {
 		
 		if(!loginCheck(userId, pwd, session)) {
 			String msg = URLEncoder.encode("아이디 또는 비밀번호가 일치하지 않습니다.", "utf-8");
-			return "redirect:/logIn/logIn?msg="+msg;
+			return "redirect:/login/login?msg="+msg;
 		}
 		session.setAttribute("userId", user.getUserId());
 		setCookie(resp, userId, rememberId);

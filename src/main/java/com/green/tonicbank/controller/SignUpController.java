@@ -24,11 +24,6 @@ public class SignUpController {
 		return "signUp";
 	}
 	
-	@GetMapping("/test")
-	public String zz() {
-		return "signUp";
-	}
-	
 	@PostMapping("join")
 	public String postJoin(User user, Model m, RedirectAttributes redatt) {
 		System.out.println("회원가입:"+user);
@@ -42,7 +37,7 @@ public class SignUpController {
 			e.printStackTrace();
 			redatt.addFlashAttribute("msg","join_fail");
 		}
-		return "redirect:/signup/join";
+		return "redirect:/signUp/join";
 	}
 	
 	//아이디 중복확인
