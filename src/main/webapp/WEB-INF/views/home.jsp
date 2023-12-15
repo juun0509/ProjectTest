@@ -13,7 +13,7 @@
 	        <div id="logo" onclick='location.href="<c:url value='/'/>"'><h1><b id="yy">영</b>양<b id="jj">제</b></h1></div>
 			
 	        <fieldset id="search">
-	        	<form action="search" method="get">
+	        	<form action="search" method="get" onsubmit="return formCheck(this);">
 		            <input id="searcht" name="keyword" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
 		            <button id="searchBtn" type="submit">검색</button>
 	        	</form>
@@ -232,6 +232,14 @@
 		</div>
 	</div>
 	<script>
+		function formCheck(frm){
+			if (frm.keyword.value.trim() === "") {
+		        alert("검색어를 입력하세요");
+		        return false;
+		    }
+			return true;
+		}
+		
 	    let prev_bttn=document.getElementById("prev");
 		let next_bttn=document.getElementById("next");
 		let imgs=document.querySelectorAll("#slides img");
