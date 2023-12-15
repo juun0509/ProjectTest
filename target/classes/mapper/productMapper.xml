@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.green.tonicbank.Product">
+
+	<insert id="insert" parameterType="Product">
+		insert into product (name, ingredient,efficacy,price)
+		 values (#{name}, #{ingredient},#{efficacy},#{price})
+	</insert>
+	
+	<delete id="delete" parameterType="String">
+		delete from product where name=#{name}
+	</delete>
+
+	<select id="searchName" parameterType="String">
+		select * from product where name=#{keyword}
+	</select>
+
+	<select id="selectIngredient" parameterType="String" resultType="Product">
+		select * from product where (ingredient like concat('%', #{keyword}, '%'))
+	</select>
+	
+	<select id="custom" parameterType="String" resultType="Product">
+		select * from product where (efficacy like concat('%', #{keyword}, '%'))
+	</select>
+	
+	
+</mapper>

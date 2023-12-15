@@ -11,6 +11,13 @@
 	<div id="con">
 		<div id="container">
 	        <div id="logo" onclick='location.href="<c:url value='/'/>"'><h1><b id="yy">영</b>양<b id="jj">제</b></h1></div>
+			
+	        <fieldset id="search">
+	        	<form action="search" method="get">
+		            <input id="searcht" name="keyword" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
+		            <button id="searchBtn" type="submit">검색</button>
+	        	</form>
+	        </fieldset>
 	
 	        <div id="nav">
 	        	<ul id="topMenu">
@@ -137,18 +144,6 @@
 	                </li>
 	            </ul>
 	        </div>
-        
-	        <fieldset id="search">
-	            <div id="sel">
-	                <select id="prod" title="select">
-		                <option value="" selected>전체</option>
-		                <option value="1" >상품명</option>
-		                <option value="2" >성분명</option>
-		                <option value="3" >브랜드명</option>
-	                </select>
-	            </div>
-	            <input id="searcht" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
-	        </fieldset>
 
 	        <div id="tabMenu2">
 	            <input type="radio" id="tab3" name="tab" checked>

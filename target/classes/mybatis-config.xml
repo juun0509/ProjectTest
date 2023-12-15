@@ -5,7 +5,8 @@
 <configuration>
 <typeAliases>
 	<typeAlias alias="User" type="com.green.tonicbank.model.User"/>
-	<typeAlias alias="SearchCondition" type="com.green.tonicbank.model.SearchCondition"/>
 	<typeAlias alias="Community" type="com.green.tonicbank.model.Community"/>
+	<typeAlias alias="CommunityComment" type="com.green.tonicbank.model.CommunityComment"/>
+	<typeAlias alias="SearchCondition" type="com.green.tonicbank.model.SearchCondition"/>
 </typeAliases>	
 </configuration>

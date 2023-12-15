@@ -3,6 +3,7 @@ package com.green.tonicbank.service;
 import java.util.List;
 
 import com.green.tonicbank.model.Community;
+import com.green.tonicbank.model.CommunityComment;
 import com.green.tonicbank.model.SearchCondition;
 
 public interface CommunityService {
@@ -17,4 +18,25 @@ public interface CommunityService {
 	
 	Community getCommunity(Integer communityId) throws Exception;
 
+	int modifyViewCount(Integer communityId) throws Exception;
+	
+	int modifyLikeCount(Integer likeCount, Integer communityId) throws Exception;
+	
+	int modifyCommentCount(Integer commentCount, Integer communityId) throws Exception;
+	
+	int getLikeCount(Integer communityId) throws Exception;
+	
+	int findLike(String userId, Integer communityId) throws Exception;
+	
+	int addLike(String userId, Integer communityId) throws Exception;
+	
+	int removeLike(Integer communityId, String userId) throws Exception;
+	
+	int writeComment(CommunityComment communityComment) throws Exception;
+	
+	List<CommunityComment> getComment(Integer communityId) throws Exception;
+	
+	int modifyComment(CommunityComment communityComment) throws Exception;
+	
+	int removeComment(Integer communityCommentId, String userId) throws Exception;
 }

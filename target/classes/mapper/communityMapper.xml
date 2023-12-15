@@ -74,4 +74,58 @@
 		<include refid="categoryFilter" />
 	</select>
 	
+	<update id="updateViewCount" parameterType="int">
+		update community set viewCount = viewCount + 1
+		where communityId = #{ communityId }
+	</update>
+	
+	<update id="updateLikeCount" parameterType="map">
+		update community set likeCount = likeCount + #{ likeCount }
+		where communityId = #{ communityId }
+	</update>
+	
+	<update id="updateCommentCount" parameterType="map">
+		update community set commentCount = commentCount + #{ commentCount }
+		where communityId = #{ communityId }
+	</update>
+	
+	<select id="selectAllLike" parameterType="int" resultType="int">
+		select count(*) from communityLikes
+		where communityId = #{communityId}
+	</select>
+	
+	<select id="selectLike" parameterType="map" resultType="int">
+		select count(*) from communityLikes 
+		where userId = #{userId} and communityId = #{communityId}
+	</select>
+	
+	<insert id="insertLike" parameterType="map">
+		insert into communityLikes(userId, communityId)
+		values (#{userId}, #{communityId})
+	</insert>
+	
+	<delete id="deleteLike" parameterType="map">
+		delete from communityLikes
+		where userId = #{userId} and communityId = #{communityId}
+	</delete>
+	
+	<insert id="insertComment" parameterType="CommunityComment">
+		insert into communityComment(communityId, content, userId)
+		values (#{communityId}, #{content}, #{userId})
+	</insert>
+	
+	<select id="selectComment" parameterType="int" resultType="CommunityComment">
+		select * from communityComment
+		where communityId = #{communityId}
+	</select>
+	
+	<update id="updateComment" parameterType="CommunityComment">
+		update communityComment set content = #{content}
+		where communityCommentId = #{communityCommentId} and userId = #{userId}
+	</update>
+	
+	<delete id="deleteComment" parameterType="map">
+		delete from communityComment
+		where communityCommentId = #{communityCommentId} and userId = #{userId}
+	</delete>
 </mapper>

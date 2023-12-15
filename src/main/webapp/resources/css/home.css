@@ -476,7 +476,8 @@ h3{
     border: 5px solid rgba(0,0,255,1);
 }
 
-#prod{
+#searchBtn{
+	width: 70px;
     font-size: 20px;
     height: 50px;
     border: 3px solid RGB(192,235,248);
@@ -487,13 +488,12 @@ h3{
 }
 
 #searcht{
-    width: 550px;
+    width: 500px;
     height: 50px;
     padding: 5px;
     border: 3px solid RGB(192,235,248);;
     font-size: 20px;
     overflow: auto;
-    position: absolute;
     top: 20px;
     left: 90px;
     font-family:"omyu_pretty";
