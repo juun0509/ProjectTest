@@ -1,19 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="ko">
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>    
+<html>    
 <head>
     <link href="<c:url value="/resources/css/searchPage.css"/>" rel='stylesheet' />
-  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
 </head>
 <body>
     <div id="con">
         <div id="container">
-            <div id="logo" onclick="location.replace('/home')"><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></div>
+            <div id="logo" onclick='location.href="<c:url value='/'/>"'><h1><b id="yy">tonic</b><b id="jj">bank</b></h1></div>
 
 
             <fieldset id="search">
@@ -29,18 +28,19 @@
                 
             </fieldset>
 
-
-
             <div id="side">
-                <p>토닉뱅크를 더 안전하게 이용하세요</p>
-                <input type="submit" class="side" id="my" name="tabs" value="마이페이지">
-                <input type="submit" class="side" id="h" name="tabs" onclick="location.replace('/signUp/join')" value="회원가입" checked>
-                <input type="submit" class="side" id="l" name="tabs" onclick="location.replace('/login/login')" value="로그인">
-            </div>
-
-
-
-
+	            <p>토닉뱅크를 더 안전하게 이용하세요</p>
+	            <c:set var="loginoutLink" value="${empty sessionScope.userId? '/login/login' :'/login/logout' }"/>
+				<c:set var="loginout" value="${empty sessionScope.userId?'로그인':'로그아웃' }"/>
+	            <input type="submit" class="side" id="my" name="tabs" value="마이페이지">
+	            <c:if test="${empty sessionScope.userId }">
+	            	<input type="submit" class="side" id="h" name="tabs" onclick="location.href='<c:url value="/signUp/join"/>'" value="회원가입">
+            	</c:if>
+	            <input type="submit" class="side" id="h" name="tabs" onclick="location.href='<c:url value="${loginoutLink }"/>'" value="${loginout }" checked>
+	            <c:if test="${not empty sessionScope.userId }">
+					<input type="submit" class="side" id="l" name="tabs" value="${sessionScope.nick}">
+				</c:if>
+	        </div>
 
         <div id="result">
 

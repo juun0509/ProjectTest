@@ -50,7 +50,7 @@
 	        </div>
 
 	        <div id="side">
-	            <p>영양제를 더 안전하게 이용하세요</p>
+	            <p>토닉뱅크를 더 안전하게 이용하세요</p>
 	            <c:set var="loginoutLink" value="${empty sessionScope.userId? '/login/login' :'/login/logout' }"/>
 				<c:set var="loginout" value="${empty sessionScope.userId?'로그인':'로그아웃' }"/>
 	            <input type="submit" class="side" id="my" name="tabs" value="마이페이지">

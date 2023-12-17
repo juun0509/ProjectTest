@@ -30,7 +30,7 @@ public class TotalSearchController {
 		sc.setOption("A");
 		sc.setPageSize(5);
 		System.out.println("통합검색 : " + sc);
-		return "totalSearch";
+		return "searchPage";
 	}
 	
 }
