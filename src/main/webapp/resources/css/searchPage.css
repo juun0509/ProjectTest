@@ -169,11 +169,12 @@
     padding: 10px;
 }
 .result h4{
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #666;
 }
 
 .result div{
-    border-top: 1px solid #666;
+   
     border-bottom: 1px solid #666;
     padding: 15px;
     height: 180px;
