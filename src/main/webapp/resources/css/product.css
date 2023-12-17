@@ -133,11 +133,10 @@
 
       }
       #main2 {
-    
-        height: 350px;
+        margin-bottom: 80px;
       }
 
-      #field4{
+      .field4{
         width: 830px;
         margin:15px 10px;
      
