@@ -165,6 +165,15 @@
 .result h4{
 	border-bottom: 2px solid black;
 	padding: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #666;
+}
+.result div{
+   
+    border-bottom: 1px solid #666;
+    padding: 15px;
+    height: 180px;
+  
 }
 .result img{
     width:250px;
