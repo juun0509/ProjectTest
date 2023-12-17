@@ -19,7 +19,7 @@
 				<i class="fa fa-exclamation-circle"> ${param.msg}</i>
 			</c:if>
 		</div>
-		<input type="hidden" name="toURL" value="${param.toURL }">
+		<input type="hidden" name="fromURL"  value='${fromURL}'>
 		<ul>
 			<li>
 				<label for="user-id" id="userid"></label>

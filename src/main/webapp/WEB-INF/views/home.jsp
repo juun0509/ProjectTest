@@ -22,7 +22,7 @@
 	        <div id="nav">
 	        	<ul id="topMenu">
 		            <li><a href="#">정보게시판</a></li>
-		            <li><a href="#">자유게시판</a></li>
+		            <li><a href="<c:url value='/community/list'/>">자유게시판</a></li>
 		            <li><a href="#">고객센터</a>
 		                <ul>
 		                    <li><a href="#">제품등록요청</a></li>

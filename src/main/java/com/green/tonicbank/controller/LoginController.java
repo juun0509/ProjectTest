@@ -30,8 +30,8 @@ public class LoginController {
 	public String logInPage(@CookieValue(value="JSESSIONID", required=false) String sessionId, HttpServletRequest req, SearchCondition sc, Model m) {
 		System.out.println("쿠키에 저장된 세션 id : " + sessionId);
 		String fromURL = req.getRequestURL()+sc.getQueryString();
-		System.out.println("이전 URL : " + fromURL);
 		fromURL  = (String)req.getHeader("REFERER");
+		System.out.println("이전 URL : " + fromURL);
 		m.addAttribute("fromURL", fromURL);
 		return "login";
 	}
