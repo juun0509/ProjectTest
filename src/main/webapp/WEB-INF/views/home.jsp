@@ -19,24 +19,22 @@
 	        	</form>
 	        </fieldset>
 	
-	        <div id="nav">
-	        	<ul id="topMenu">
-		            <li><a href="#">정보게시판</a></li>
-		            <li><a href="<c:url value='/community/list'/>">자유게시판</a></li>
-		            <li><a href="#">고객센터</a>
-		                <ul>
-		                    <li><a href="#">제품등록요청</a></li>
-		                    <li><a href="#">공지사항</a></li>
-		                </ul>
-		            </li>
-		            <li><a href="#">제품</a>
-		                <ul>
-		                    <li><a href="#">제품비교</a></li>
-		                    <li><a href="#">제품</a></li>
-		                </ul>
-		            </li>
-	        	</ul><hr>
-			</div>
+	             <div id="nav"><ul id="topMenu">
+            <li><a href="#">정보게시판</a></li>
+            <li><a href="#">자유게시판</a></li>
+            <li><a href="#">고객센터</a>
+                <ul id="goul">
+                    <li><a href="#">제품등록요청</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </li>
+            <li><a href="#">제품</a>
+                <ul>
+                    <li><a href="#">제품비교</a></li>
+                    <li><a href="#">제품</a></li>
+                </ul>
+            </li>
+        </ul><hr></div>
 
 	        <div id="slideshow">
 	        	<div id="slides" class="slides">
