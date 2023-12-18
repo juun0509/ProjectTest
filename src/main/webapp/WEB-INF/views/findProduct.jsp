@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="con">
-    <div id="header"><h1>상품 찾기</h1></div>
+    <div id="header"><h1>상품 찾기</h1> <button type="button">맞춤영양제 알아보기→</button> </div>
     <div id="main">
 
         <div id="sel">
