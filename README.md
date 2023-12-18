@@ -47,7 +47,9 @@ ingredient text not null,
 efficacy text not null,
 price int not null,
 review text,
-cost int default 0
+cost int default 0,
+size int default 0,
+up int default 0
 );
 select * from product;
 INSERT INTO product (name, ingredient, efficacy, price)
