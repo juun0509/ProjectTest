@@ -298,6 +298,7 @@
                     <option value="119" >아티초크</option>
               
                     </select>
+		<input id="FindP" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
                     <button type="button" class="search">검색</button>
                     <p>*중복가능</p>
                 </div>
