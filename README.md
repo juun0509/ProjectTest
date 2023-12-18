@@ -39,7 +39,7 @@ ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 
- product table 
+ product table  (그대로복붙)
 
  create table product(
 name varchar(50) not null primary key,
