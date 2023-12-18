@@ -497,7 +497,7 @@ h3{
     top: 20px;
     left: 90px;
     font-family:"omyu_pretty";
-    background-image: url(HTML/img/돋보기.png);
+    background-image: url(/tonicbank/resources/img/돋보기.png);
     background-size: 35px;
     background-repeat: no-repeat;
     background-position: right top; 
@@ -726,7 +726,7 @@ h3{
 }
 
 a[title^="f"]{
-	background:url(/html/js/img/페북.png) no-repeat;
+	background:url(/tonicbank/resources/img/페북.png) no-repeat;
   	float: right;
    	display:inline;
    	position: absolute;
@@ -738,7 +738,7 @@ a[title^="f"]{
 }
 
 a[title^="i"]{
-    background:url(/html/js/img/인스타.jpg) no-repeat;
+    background:url(/tonicbank/resources/img/인스타.jpg) no-repeat;
     padding: 50px 15px;
     display:inline;
     position: absolute;
@@ -749,7 +749,7 @@ a[title^="i"]{
 }
 
 a[title^="k"]{
-    background:url(/html/js/img/카톡.png) no-repeat;
+    background:url(/tonicbank/resources/img/카톡.png) no-repeat;
     padding:15px;
     background-size: cover;
     display:inline;
