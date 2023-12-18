@@ -13,8 +13,8 @@
 	</delete>
 	
 	<insert id="insert" parameterType="Community">
-		insert into community (category, title, content, userId, tonicId) 
-		values (#{category}, #{title}, #{content}, #{userId}, #{tonicId});
+		insert into community (category, title, content, userId, productName) 
+		values (#{category}, #{title}, #{content}, #{userId}, #{productName});
 	</insert>
 
 	<select id="selectAll" resultType="Community" parameterType="SearchCondition">
@@ -110,22 +110,51 @@
 	</delete>
 	
 	<insert id="insertComment" parameterType="CommunityComment">
-		insert into communityComment(communityId, content, userId)
-		values (#{communityId}, #{content}, #{userId})
+		insert into communityComment(communityId, content, userId, `group`, parentCommentId, groupOrder, step)
+		values (#{communityId}, #{content}, #{userId}, #{group}, #{parentCommentId}, #{groupOrder}, #{step})
 	</insert>
 	
 	<select id="selectComment" parameterType="int" resultType="CommunityComment">
-		select * from communityComment
+		select communityComment.*, user.nick from communityComment
+		JOIN user ON communityComment.userId = user.userId
 		where communityId = #{communityId}
+		order by `group` asc, groupOrder asc
+	</select>
+	
+	<select id="selectDetailComment" parameterType="int" resultType="CommunityComment">
+		select * from communityComment 
+		where communityCommentId = #{communityCommentId}
 	</select>
 	
 	<update id="updateComment" parameterType="CommunityComment">
-		update communityComment set content = #{content}
+		update communityComment set content = #{content}, deleteStatus = #{deleteStatus}
 		where communityCommentId = #{communityCommentId} and userId = #{userId}
 	</update>
 	
-	<delete id="deleteComment" parameterType="map">
+	<update id="updateCommentChildCount" parameterType="int">
+		UPDATE communityComment 
+		SET childCount = COALESCE(
+		    (
+		        SELECT subquery.countResult
+		        FROM (
+		            SELECT COUNT(*) + SUM(childCount) as countResult
+		            FROM communityComment
+		            WHERE parentCommentId = #{communityCommentId}
+		        ) AS subquery
+		    ),
+		    0
+		)
+		WHERE communityCommentId = #{communityCommentId};
+	</update>
+	
+	<update id="updateCommentGroupOrder" parameterType="map">
+		update communityComment
+		set groupOrder = groupOrder + #{count}
+		where `group` = #{comment.group} and groupOrder >= #{comment.groupOrder}
+	</update>
+	
+	<delete id="deleteComment">
 		delete from communityComment
-		where communityCommentId = #{communityCommentId} and userId = #{userId}
+		where childCount = 0 and deleteStatus = true
 	</delete>
 </mapper>

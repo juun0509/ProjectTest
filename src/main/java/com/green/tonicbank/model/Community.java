@@ -14,8 +14,7 @@ public class Community {
 	private Integer viewCount;
 	private Integer likeCount;
 	private Integer commentCount;
-	// 영양제 제품 테이블 PK 이름으로 변경
-	private Integer tonicId;
+	private Integer productName;
 	private String nick;
 
 	public Integer getCommunityId() {
@@ -90,12 +89,12 @@ public class Community {
 		this.commentCount = commentCount;
 	}
 
-	public Integer getTonicId() {
-		return tonicId;
+	public Integer getProductName() {
+		return productName;
 	}
 
-	public void setTonicId(Integer tonicId) {
-		this.tonicId = tonicId;
+	public void setProductName(Integer productName) {
+		this.productName = productName;
 	}
 
 	public String getNick() {
@@ -110,25 +109,25 @@ public class Community {
 		super();
 	}
 
-	public Community(String category, String title, String content, String userId, Integer tonicId) {
+	public Community(String category, String title, String content, String userId, Integer productName) {
 		super();
 		this.category = category;
 		this.title = title;
 		this.content = content;
 		this.userId = userId;
-		this.tonicId = tonicId;
+		this.productName = productName;
 	}
 
 	@Override
 	public String toString() {
 		return "Community [communityId=" + communityId + ", category=" + category + ", title=" + title + ", content="
 				+ content + ", userId=" + userId + ", createdDate=" + createdDate + ", viewCount=" + viewCount
-				+ ", likeCount=" + likeCount + ", commentCount=" + commentCount + ", tonicId=" + tonicId + "]";
+				+ ", likeCount=" + likeCount + ", commentCount=" + commentCount + ", productName=" + productName + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(category, communityId, content, title, tonicId, userId);
+		return Objects.hash(category, communityId, content, title, productName, userId);
 	}
 
 	@Override
@@ -142,7 +141,7 @@ public class Community {
 		Community other = (Community) obj;
 		return Objects.equals(category, other.category) && Objects.equals(communityId, other.communityId)
 				&& Objects.equals(content, other.content) && Objects.equals(title, other.title)
-				&& Objects.equals(tonicId, other.tonicId) && Objects.equals(userId, other.userId);
+				&& Objects.equals(productName, other.productName) && Objects.equals(userId, other.userId);
 	}
 
 }

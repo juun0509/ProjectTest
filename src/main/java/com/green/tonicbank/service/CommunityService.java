@@ -36,7 +36,13 @@ public interface CommunityService {
 	
 	List<CommunityComment> getComment(Integer communityId) throws Exception;
 	
+	CommunityComment getDetailComment(Integer communityCommentId) throws Exception;
+	
 	int modifyComment(CommunityComment communityComment) throws Exception;
 	
-	int removeComment(Integer communityCommentId, String userId) throws Exception;
+	int modifyCommentChildCount(Integer communityCommentId) throws Exception;
+	
+	int modifyCommentGroupOrder(Integer count, CommunityComment comment) throws Exception;
+	
+	int removeComment(Integer communityId) throws Exception;
 }

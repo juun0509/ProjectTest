@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+body{
+    font-family: 'omyu_pretty';
+}
+#writer{
+    width:1000px;
+    height: 1200px;
+}
+#writer h2{
+    margin: 0px;
+    margin-top: 30px;
+    margin-bottom: 3px;
+}
+.category{
+    width: 200px;
+    height: 36px;
+    font-family: 'omyu_pretty';
+    font-size: 16px;
+
+}
+#wcontainer2 input{
+    width: 780px;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'omyu_pretty';
+}
+#wcontainer{
+    float: inline-start;
+}
+#wcontainer2{
+    float: inline-end;
+}
+#wcontainer3{
+	clear: both;
+    width:1000px;
+    padding-top: 1px;
+}
+#wcontainer4 {
+	clear: both;
+	padding-top: 1px;
+}
+.ck-editor__editable { height: 400px; }
+#searchPro{
+    width: 1000px;
+    height: 100px;
+    background-color: #EEEEEE;
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+}
+#searchPro span{
+    font-size: 20px;
+    display:grid;
+    align-items:center;
+
+
+}
+
+#wcontainer4 p{
+    font-size: 18px;
+}
+
+#wcontainer4 textarea{
+    min-width: 995px;
+    min-height: 400px;
+    font-size: 18px;
+    font-family: 'omyu_pretty';
+}
+#wbtns button{
+    margin-top: 15px;
+    width: 100px;
+    font-size: 17px;
+    height: 40px;
+    border: none;
+    border-radius: 8%;
+    background-color:  RGB(0,176,240);
+    color: white;
+    float: inline-end;
+    cursor: pointer;
+}
+@font-face {
+font-family: 'KCC-Ganpan';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'omyu_pretty';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}

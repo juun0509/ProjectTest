@@ -38,8 +38,14 @@ public interface CommunityDao {
 	
 	List<CommunityComment> selectComment(Integer communityId) throws Exception;
 	
+	CommunityComment selectDetailComment(Integer communityCommentId) throws Exception;
+	
 	int updateComment(CommunityComment communityComment) throws Exception;
 	
-	int deleteComment(Integer communityCommentId, String userId) throws Exception;
+	int updateCommentChildCount(Integer communityCommentId) throws Exception;
+	
+	int updateCommentGroupOrder(Integer count, CommunityComment comment) throws Exception;
+	
+	int deleteComment() throws Exception;
 	
 }

@@ -119,17 +119,32 @@ public class CommunityDaoImpl implements CommunityDao {
 	public List<CommunityComment> selectComment(Integer communityId) throws Exception {
 		return session.selectList(namespace + "selectComment", communityId);
 	}
+	
+	@Override
+	public CommunityComment selectDetailComment(Integer communityCommentId) throws Exception {
+		return session.selectOne(namespace + "selectDetailComment", communityCommentId);
+	}
 
 	@Override
 	public int updateComment(CommunityComment communityComment) throws Exception {
 		return session.update(namespace + "updateComment", communityComment);
 	}
+	
+	@Override
+	public int updateCommentChildCount(Integer communityCommentId) throws Exception {
+		return session.update(namespace + "updateCommentChildCount", communityCommentId);
+	}
+	
+	@Override
+	public int updateCommentGroupOrder(Integer count, CommunityComment comment) throws Exception {
+		Map map = new HashMap();
+		map.put("count", count);
+		map.put("comment", comment);
+		return session.update(namespace + "updateCommentGroupOrder", map);
+	}
 
 	@Override
-	public int deleteComment(Integer communityCommentId, String userId) throws Exception {
-		Map map = new HashMap();
-		map.put("communityCommentId", communityCommentId);
-		map.put("userId", userId);
-		return session.delete(namespace + "deleteComment", map);
+	public int deleteComment() throws Exception {
+		return session.delete(namespace + "deleteComment");
 	}
 }

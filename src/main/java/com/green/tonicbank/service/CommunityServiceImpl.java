@@ -56,6 +56,9 @@ public class CommunityServiceImpl implements CommunityService {
 		return communityDao.updateCommentCount(commentCount, communityId);
 	}
 	
+	/**
+	 * 좋아요
+	 */
 	@Override
 	public int getLikeCount(Integer communityId) throws Exception {
 		return communityDao.selectAllLike(communityId);
@@ -76,23 +79,51 @@ public class CommunityServiceImpl implements CommunityService {
 		return communityDao.deleteLike(communityId, userId);
 	}
 
+	/**
+	 * 댓글
+	 */
 	@Override
 	public int writeComment(CommunityComment communityComment) throws Exception {
-		return communityDao.insertComment(communityComment);
+		int rowCnt = communityDao.insertComment(communityComment);
+		
+		if (rowCnt == 1)
+			rowCnt = communityDao.updateCommentCount(1, communityComment.getCommunityId());
+		
+		return rowCnt; 
 	}
 
 	@Override
 	public List<CommunityComment> getComment(Integer communityId) throws Exception {
 		return communityDao.selectComment(communityId);
 	}
-
+	
+	@Override
+	public CommunityComment getDetailComment(Integer communityCommentId) throws Exception {
+		return communityDao.selectDetailComment(communityCommentId);
+	}
+ 
 	@Override
 	public int modifyComment(CommunityComment communityComment) throws Exception {
 		return communityDao.updateComment(communityComment);
 	}
+	
+	@Override
+	public int modifyCommentChildCount(Integer communityCommentId) throws Exception {
+		return communityDao.updateCommentChildCount(communityCommentId);
+	}
+	
+	@Override
+	public int modifyCommentGroupOrder(Integer count, CommunityComment comment) throws Exception {
+		return communityDao.updateCommentGroupOrder(count, comment);
+	}
 
 	@Override
-	public int removeComment(Integer communityCommentId, String userId) throws Exception {
-		return communityDao.delete(communityCommentId, userId);
+	public int removeComment(Integer communityId) throws Exception {
+		int rowCnt = communityDao.deleteComment();
+		
+		if (rowCnt == 1)
+			communityDao.updateCommentCount(-1, communityId);
+		
+		return rowCnt;
 	}
 }

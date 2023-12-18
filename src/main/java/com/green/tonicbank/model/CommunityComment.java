@@ -117,11 +117,16 @@ public class CommunityComment {
 		super();
 	}
 
-	public CommunityComment(Integer communityId, String content, String userId) {
+	public CommunityComment(Integer communityId, String content, String userId, Integer parentCommentId, Integer group,
+			Integer groupOrder, Integer step) {
 		super();
 		this.communityId = communityId;
 		this.content = content;
 		this.userId = userId;
+		this.parentCommentId = parentCommentId;
+		this.group = group;
+		this.groupOrder = groupOrder;
+		this.step = step;
 	}
 
 	@Override
