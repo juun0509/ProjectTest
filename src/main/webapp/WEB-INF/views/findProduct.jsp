@@ -315,7 +315,7 @@
 
     </div>
     <div id="main2">
-        <fieldset id="field3">
+        <fieldset class="field3">
             <ul>
                 <li><h3>상품1</h3></li>
                 <li><img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img"></li>
