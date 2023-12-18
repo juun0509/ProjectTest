@@ -15,5 +15,6 @@ public interface ProductDao {
 	List<Product> selectIngredient(String keyword) throws Exception;
 
 	List<Product> custom(String keyword) throws Exception;
-
+	
+	List<Product> find (Product product)throws Exception;
 }
