@@ -38,5 +38,9 @@ public class ProductDaoImpl implements ProductDao {
 	public List<Product> custom (String keyword) throws Exception{
 		return session.selectList(namespace+"custom",keyword);
 	}
+	@Override
+	public List<Product> find (Product product)throws Exception{
+		return session.selectList(namespace+"find",product);
+	}
 }
 

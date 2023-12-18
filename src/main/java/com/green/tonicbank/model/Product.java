@@ -6,6 +6,15 @@ public class Product {
 	private int price;
 	private String review;
 	private int cost;
+	private int up;
+	
+	
+	public int getUp() {
+		return up;
+	}
+	public void setUp(int up) {
+		this.up = up;
+	}
 	public int getCost() {
 		return cost;
 	}
@@ -49,10 +58,25 @@ public class Product {
 		this.efficacy = efficacy;
 		this.price = price;
 	}
+	public Product(String name, String ingredient, String efficacy) {
+		super();
+		this.name = name;
+		this.ingredient = ingredient;
+		this.efficacy = efficacy;
+		
+	}
+	
+	
+	
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Product [name=" + name + ", ingredient=" + ingredient + ", efficacy=" + efficacy + ", price=" + price
-				+ ", review=" + review + "]";
+				+ ", review=" + review + ", cost=" + cost + ", up=" + up + "]";
 	}
+	
 	
 }

@@ -25,5 +25,13 @@
 		select * from product where (efficacy like concat('%', #{keyword}, '%'))
 	</select>
 	
+	<select id="find" parameterType="Product" resultType="Product">
+		SELECT * FROM product
+		WHERE 
+  		 ingredient LIKE CONCAT('%', #{ingredient}, '%')
+  		  And efficacy LIKE CONCAT('%', #{efficacy}, '%')
+  		  ANd name LIKE CONCAT('%', #{name}, '%');
+	
+	</select>
 	
 </mapper>
