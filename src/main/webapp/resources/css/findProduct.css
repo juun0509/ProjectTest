@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-@charset "UTF-8";
-
 *{
     margin: 0px;
     padding: 0px;
@@ -14,13 +12,28 @@
     margin: 0 auto;
 }
 #header {
-
-height: 150px;
+height: 170px;
 }
 #header h1{
 padding-top: 95px;
 text-align: center;
 
+}
+
+
+#header button{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    float: inline-end;
+
+}
+
+#header button:hover{
+    color: rgba(0,176,240,1);
+    text-decoration: underline;
 }
 #main {
 background: #f2f4f7;
@@ -43,6 +56,18 @@ float: inline-start;
 margin-right: 10px;
 cursor: pointer;
 }
+
+
+#FindP{
+    height: 30px;
+    width: 300px;
+    margin-right: 10px;
+    font-size: 18px;
+    padding:0px 5px;
+
+
+}
+
 .search{
 height: 30px;
 background-color: RGB(0,176,240);
