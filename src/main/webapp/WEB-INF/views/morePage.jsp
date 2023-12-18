@@ -37,9 +37,9 @@
 	        </div>
 			
         	<div id="result">
-            	<h2>전체검색결과 총 ?건</h2>
+            	<h2>자유게시판</h2>
             	<div class="result" style="margin-top: 0px;">
-                	<h4>자유게시판 (총 <b>${ph.totalCnt }</b>건)<a href="<c:url value='/more'/>?keyword=${ph.sc.keyword}">더보기</a></h4>
+                	<h4><b>${ph.totalCnt }</b>건</h4>
 					<ul>
 		   				<c:choose>
 							<c:when test="${ empty list }">
@@ -48,7 +48,7 @@
 								</div>
 							</c:when>
 							<c:otherwise>
-			        			<c:forEach var="board" items="${ list }" begin="0" end="5">
+			        			<c:forEach var="board" items="${ list }">
 			        				<fmt:formatDate var="today" value="${now}" pattern="yyyy.MM.dd" />
 									<fmt:formatDate var="reg_date" value="${board.createdDate}" pattern="yyyy.MM.dd" />
 				                	<li onclick="location.href='<c:url value="/community/read${ph.sc.queryString}&communityId=${board.communityId}"/>'">
@@ -81,63 +81,39 @@
 		   				</c:choose>
 					</ul>
             	</div>
-
-            <div class="result">
-                <h4>카테고리>성분명 (총 <b>?</b>건)<a>더보기</a></h4>
-                <div>
-                <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                <ul>
-                    <li>브랜드명:</li>
-                    <li>상품명:</li>
-                    <li>가격:</li>
-                    <li>성분:</li>
-                    <li>효능:</li>
-                    <li>후기(<a>1</a>)</li>
-
-                </ul>
-                </div>
-            </div>
-                
-            <div class="result">
-                <h4>카테고리>브랜드명 (총 <b>?</b>건)<a>더보기</a></h4>
-                <div>
-                <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                <ul>
-                    <li>브랜드명:</li>
-                    <li>상품명:</li>
-                    <li>가격:</li>
-                    <li>성분:</li>
-                    <li>효능:</li>
-                    <li>후기(<a>1</a>)</li>
-
-                </ul>
-                </div>
-            </div>
-        </div>
-
-        
-        
-        <footer>
-            <div id="ft">
-            <ul>
-                <li class="ft">회사소개</li>
-                <li class="ft">개인정보처리방침</li>
-                <li class="ft">여행약관</li>
-                <li class="ft">저작권정책</li>
-                <li class="ft">Q&A</li>
-                <li class="ft" id="fta">사이트맵</li>
-                
-            </ul>
-            <p id="ad">(우)26464 충청북도 청주시 **동 **로 *** (TEL)043-1234-5678 사업자 등록번호: 202-81-50707</p>
-                <p><a href="#" title="f"></a><a href="#" title="i"></a><a href="#" title="k"></a></p>
-        </div>
-        </footer>
-  
-
-    
-    
-    
-    </div>
+            	<div id="page">
+					<c:if test="${ph.showPrev }">
+		
+						<a
+							href="<c:url value='/more${ph.sc.getQueryString(ph.beginPage-1) }'/>">&lt;</a>
+					</c:if>
+					<c:forEach var="i" begin="${ph.beginPage }" end="${ph.endPage }">
+						<a class='${ph.sc.page== i ? "active": "" }'
+							href="<c:url value='/more${ ph.sc.getQueryString(i)}'/>">${i }</a>
+					</c:forEach>
+					<c:if test="${ph. showNext }">
+						<a
+							href="<c:url value='/more${ph.sc.getQueryString(ph.endPage+1) }'/>">&gt;</a>
+		
+					</c:if>
+				</div>
+			</div>
+			
+	        <footer>
+	            <div id="ft">
+		            <ul>
+		                <li class="ft">회사소개</li>
+		                <li class="ft">개인정보처리방침</li>
+		                <li class="ft">여행약관</li>
+		                <li class="ft">저작권정책</li>
+		                <li class="ft">Q&A</li>
+		                <li class="ft" id="fta">사이트맵</li>
+		            </ul>
+		            <p id="ad">(우)26464 충청북도 청주시 **동 **로 *** (TEL)043-1234-5678 사업자 등록번호: 202-81-50707</p>
+					<p><a href="#" title="f"></a><a href="#" title="i"></a><a href="#" title="k"></a></p>
+				</div>
+	        </footer>
+	    </div>
     </div>
     <script>
 	    function formCheck(frm){

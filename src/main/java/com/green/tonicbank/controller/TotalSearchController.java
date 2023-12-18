@@ -50,4 +50,23 @@ public class TotalSearchController {
 		return "searchPage";
 	}
 	
+	@GetMapping("/more")
+	public String more(SearchCondition sc, Model model) {
+		sc.setOption("A");
+		System.out.println("통합검색 더보기 : " + sc);
+		try {
+			Date now = new Date();
+			int totalCount = communitySvc.getCount(sc);
+			PageHandler ph = new PageHandler(totalCount, sc);
+			List<Community> list = communitySvc.getAllCommunity(sc);
+			model.addAttribute("now", now);
+			model.addAttribute("ph", ph);
+			model.addAttribute("list", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "morePage";
+	}
+	
 }
