@@ -122,8 +122,6 @@
                     <input type="text" id="pname" placeholder="상품명을 입력하세요.">
                     <button type="button" class="search" onclick="send()">검색</button>
 
-		<input id="FindP" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
-                    <button type="button" class="search">검색</button>
 
                     <p>*중복가능</p>
                 </div>
