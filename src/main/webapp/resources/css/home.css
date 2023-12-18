@@ -169,24 +169,22 @@ a{
     height: 50px;
     margin-top: 0px;
 }
-
 #topMenu>li{
     float: left;
-    position: relative;
 }
-
 #topMenu>li>a:hover{
    
     color:#000;
 }
 
+
 #topMenu>li>ul{
+ 
     display: none;
-    position: absolute;
-    width: 160px;
+    width: 140px;
     background: rgba(255, 255, 255, 0.8);
-    left: 20px;
-    margin: 0;
+    text-align: center;
+    margin-top: 10px;
 }
 
 #topMenu>li:hover>ul{
@@ -197,10 +195,10 @@ a{
 #topMenu li:hover a{
     color: black;
 }
-
 #topMenu>li>ul>li>a:hover{
     color: RGB(0,176,240);
 }
+
 
 #topMenu>li>a{
     color: gray;
@@ -212,8 +210,9 @@ a{
     font-size: 0.5em;
 }
 
+
 #topMenu>li>ul>li{
-    padding: 10px 10px 10px 30px;
+    padding: 5px;
 }
 
 #topMenu>li>ul>li>a{
@@ -222,6 +221,11 @@ a{
     color: black;
     text-align: center;
 }
+#goul{
+    margin-left: 10px;
+
+}
+
 
 #slides{
     position: relative;
