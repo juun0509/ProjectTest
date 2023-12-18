@@ -142,13 +142,18 @@
     <div id="main2">
 
         <fieldset class="field3">
-            <ul>
+        	<ul>
                 <li><h3>상품1</h3></li>
                 <li><img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img"></li>
                 <li>가격 100000~150000</li>
                 <li>옵션: (태그)(태그)(태그)</li>
                 <li>효능: (간)(심장)(머리)</li>
                 <li>후기 <a id="review">(1)</a></li>
+    		</ul>
+        </fieldset>
+    </div>
+  
+</div>
 
 
 		<script type="text/javascript">
@@ -322,9 +327,6 @@
 			}
 		</script>
 
-    </div>
-  
-</div>
 
 </body>
 </html>
