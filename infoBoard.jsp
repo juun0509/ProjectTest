@@ -22,7 +22,7 @@
         
             <div class="tagList">
 
-                    <input class="tag" type="button" value="전체">
+        
                     <input class="tag" type="button" value="DHA">
 					<input class="tag" type="button" value="Hawthorn">
 					<input class="tag" type="button" value="MSM">
