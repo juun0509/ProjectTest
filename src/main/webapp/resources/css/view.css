@@ -44,6 +44,10 @@ hr {
 	margin-bottom: 40px;
 }
 
+#cont img {
+	max-width: 100%;
+}
+
 #like {
 	width: 150px;
 	text-align: center;
