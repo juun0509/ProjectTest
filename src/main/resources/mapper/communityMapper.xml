@@ -68,6 +68,11 @@
 		where communityId=#{communityId}
 	</select>
 	
+	<update id="updateCommunity" parameterType="Community">
+		update community set title = #{title}, content = #{content}
+		where communityId = #{communityId}
+	</update>
+	
 	<select id="count" resultType="int" parameterType="SearchCondition">
 		select count(*) from community 
 		<include refid="searchCondition" />

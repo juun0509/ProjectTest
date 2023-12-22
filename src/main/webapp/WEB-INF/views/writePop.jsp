@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
    <style>
         html{
             overflow:hidden;
@@ -109,6 +111,10 @@
         #cancel:focus{
             color: white;
         }
+        
+        .selected {
+        	background: #e7e7e7;
+        }
 
         @font-face {
         font-family: 'KCC-Ganpan';
@@ -131,22 +137,13 @@
             
             
             <div id="prodPop">
-                <div class="imgPop">
-                    <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                    <p>상품명</p>
-                </div>
-                <div class="imgPop">
-                    <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                    <p>상품명</p>
-                </div>
-                <div class="imgPop">
-                    <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                    <p>상품명</p>
-                </div>
-                <div class="imgPop">
-                    <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                    <p>상품명</p>
-                </div>
+            	<c:forEach var="product" items="${ list }">
+            		<div class="imgPop">
+            			<input type="hidden" name="productName" value="${ product.name }"/>
+	                    <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
+	                    <p>${ product.name }</p>
+	                </div>
+            	</c:forEach>
             </div>
        
 
@@ -154,9 +151,59 @@
             
             <div id="pbtns"> 
                 <button type="button" id="cancel">CANCEL</button>
-                <button type="submit" id="submit">SUBMIT</button>
+                <button type="button" id="submit">SUBMIT</button>
             </div>
 
     </div>
+    
+    <script>
+    	$(document).ready(function() {
+    		$('#searchPro').keyup(function () {
+    			let keyword = $('#searchPro').val();
+    			$.ajax({
+    				url : "/tonicbank/community/writePop",
+    				type : "post",
+    				data : {
+    					keyword : keyword
+    				},
+    				success : function(result) {
+    					$("#prodPop").html(toHtml(result));
+    				},
+    				error : function() {
+						alert("error")
+					}
+    			});
+    		});
+    		
+    		$('#cancel').click(function() {
+    			window.close();
+    		});
+    		
+    		$('#submit').click(function() {
+    			let productName = $('.selected > input[name=productName]').val();
+    			window.opener.postMessage(productName, '*');
+    			window.close();
+    		});
+    	});
+    	
+    	$(document).on('click', '.imgPop', function() {
+    		$('.imgPop').removeClass('selected');
+    		$(this).addClass('selected');
+    	});
+    	
+    	let toHtml = function(products) {
+    		let tmp = '';
+    		
+    		products.forEach(function(product) {
+	    		tmp += '<div class="imgPop">';
+	    		tmp += '<input type="hidden" name="productName" value="' + product.name + '"/>';
+    			tmp += '<img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">';
+    			tmp += '<p>' + product.name + '</p>';
+    			tmp += '</div>';
+    		});
+    		
+    		return tmp;
+    	}
+    </script>
 </body>
 </html>

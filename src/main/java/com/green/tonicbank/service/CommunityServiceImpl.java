@@ -40,6 +40,11 @@ public class CommunityServiceImpl implements CommunityService {
 	public Community getCommunity(Integer communityId) throws Exception {
 		return communityDao.select(communityId);
 	}
+	
+	@Override
+	public int modifyCommunity(Community community) throws Exception {
+		return communityDao.updateCommunity(community);
+	}
 
 	@Override
 	public int modifyViewCount(Integer communityId) throws Exception {

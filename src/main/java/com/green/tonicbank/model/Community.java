@@ -14,7 +14,7 @@ public class Community {
 	private Integer viewCount;
 	private Integer likeCount;
 	private Integer commentCount;
-	private Integer productName;
+	private String productName;
 	private String nick;
 
 	public Integer getCommunityId() {
@@ -89,11 +89,11 @@ public class Community {
 		this.commentCount = commentCount;
 	}
 
-	public Integer getProductName() {
+	public String getProductName() {
 		return productName;
 	}
 
-	public void setProductName(Integer productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
@@ -109,7 +109,7 @@ public class Community {
 		super();
 	}
 
-	public Community(String category, String title, String content, String userId, Integer productName) {
+	public Community(String category, String title, String content, String userId, String productName) {
 		super();
 		this.category = category;
 		this.title = title;

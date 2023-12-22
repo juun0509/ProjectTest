@@ -53,6 +53,11 @@ public class CommunityDaoImpl implements CommunityDao {
 	public Community select(Integer communityId) throws Exception {
 		return session.selectOne(namespace + "select", communityId);
 	}
+	
+	@Override
+	public int updateCommunity(Community community) throws Exception {
+		return session.update(namespace + "updateCommunity", community);
+	}
 
 	@Override
 	public int updateViewCount(Integer communityId) throws Exception {

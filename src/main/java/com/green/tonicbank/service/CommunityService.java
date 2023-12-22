@@ -17,6 +17,8 @@ public interface CommunityService {
 	int getCount(SearchCondition sc) throws Exception;
 	
 	Community getCommunity(Integer communityId) throws Exception;
+	
+	int modifyCommunity(Community community) throws Exception;
 
 	int modifyViewCount(Integer communityId) throws Exception;
 	

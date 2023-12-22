@@ -35,17 +35,19 @@
 				| 조회수 ${community.viewCount}
 			</p>
 			<hr>
+			<c:if test="${ community.category == '후기' }">
+				<div id="product">
+					<img
+						src="${pageContext.request.contextPath}/resources/img/slide1.jpg"
+						alt="" class="img">
+	
+					<h4>${product.name}</h4>
+					<div>${ product.ingredient }</div>
+					<div>${ product.efficacy }</div>
+				</div>
+			</c:if>
 
-			<div id="product">
-				<img
-					src="${pageContext.request.contextPath}/resources/img/slide1.jpg"
-					alt="" class="img">
-
-				<h4>${dto.product}</h4>
-				<div>${dto.option}</div>
-			</div>
-
-			<p id="cont">${ community.content }</p>
+			<div id="cont">${ community.content }</div>
 
 
 			<div id="like">
@@ -60,10 +62,10 @@
 
 			<hr>
 			<c:if
-				test="${not empty sessionScope.userId && sessionScope.userId == dto.writer }">
+				test="${not empty sessionScope.userId && sessionScope.userId == community.userId }">
 				<!-- 작성자가 본인일 경우에만 버튼 활성화-->
 				<button type="button" class="btn" id="modiBtn"
-					onclick="location.href='<c:url value="/board/modify?bno=${dto.bno}"/>';">
+					onclick="location.href='<c:url value="/community/modify?communityId=${community.communityId}"/>';">
 					수정</button>
 				<button type="button" class="btn" onclick="deletePost();">
 					삭제</button>
@@ -79,6 +81,7 @@
 			<button type="button" class="ss" id="listView"
 				onclick="location.href='<c:url value="/community/list${searchCondition.queryString }"/>';">목록</button>
 
+			<input type="hidden" name="communityId" value="${ community.communityId }" />
 		</form>
 	</div>
 
@@ -135,28 +138,24 @@
 
 
 		</div>
+		
 		<!--댓글 목록을 보여줌(ajax를 이용해서 불러올거임)-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<h3>댓글달기</h3>
 		<textarea type="text" placeholder="내용을 입력해주세요" name="comment"
 			id="commentText"></textarea>
 		<button id="sendBtn" type="button">등록</button>
 	</div>
 	<script>
+		function deletePost() {
+			var confirmed = confirm("정말로 삭제하시겠습니까?");
+			if (confirmed) {
+				var form = document.viewFrm;
+				form.method = "post";
+				form.action="<c:url value='/community/remove' />${ sc.queryString }";
+				form.submit();
+			}
+		}
+	
 		let bno = "${community.communityId}";
 
 		// 댓글 가져오기 함수

@@ -1,10 +1,14 @@
 package com.green.tonicbank.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,12 +25,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
+import com.green.tonicbank.dao.ProductDao;
 import com.green.tonicbank.model.Community;
 import com.green.tonicbank.model.CommunityComment;
-import com.green.tonicbank.model.SearchCondition;
 import com.green.tonicbank.model.PageHandler;
+import com.green.tonicbank.model.Product;
+import com.green.tonicbank.model.SearchCondition;
 import com.green.tonicbank.service.CommunityService;
 
 @Controller
@@ -34,11 +45,13 @@ import com.green.tonicbank.service.CommunityService;
 public class CommunityController {
 	
 	private final CommunityService communityService;
+	private final ProductDao productDao;
 	
 	@Autowired
-	public CommunityController(CommunityService communityService) {
+	public CommunityController(CommunityService communityService, ProductDao productDao) {
 		super();
 		this.communityService = communityService;
+		this.productDao = productDao;
 	}
 
 	@GetMapping("/list")
@@ -75,12 +88,70 @@ public class CommunityController {
 				throw new Exception("viewCount error");
 			}
 			Community community = communityService.getCommunity(communityId);
+			String productName = community.getProductName().replace(",", "");
+			Product product = new Product();
+			product.setName(productName);
+			product.setIngredient("");
+			product.setEfficacy("");
+			List<Product> list = productDao.find(product);
+			product = list.get(0);
 			
 			Date now = new Date();
 			model.addAttribute("now", now);
 			model.addAttribute("community", community);
+			model.addAttribute("product", product);
 			
 			return "view";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "error");
+			return "home";
+		}
+	}
+	
+	@GetMapping("/modify")
+	public String modifyCommunity(Integer communityId, Model model) {
+		try {
+			Community community = communityService.getCommunity(communityId);
+			
+			model.addAttribute("community", community);
+			
+			return "communityModify";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "error");
+			return "home";
+		}
+	}
+	
+	@PostMapping("/modify")
+	public String modifyCommunity(Community community, Model model) {
+		System.out.println(community);
+		try {
+			int rowCnt = communityService.modifyCommunity(community);
+			
+			if (rowCnt != 1)
+				throw new Exception("community modify error");
+			
+			return "redirect:/community/list?communityId=" + community.getCommunityId();
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "error");
+			return "home";
+		}
+	}
+	
+	@PostMapping("/remove")
+	public String removeCommunity(Integer communityId, SearchCondition sc, Model model, HttpSession session) {
+		String userId = (String)session.getAttribute("userId");
+		try {
+			int rowCnt = communityService.remove(communityId, userId);
+			
+			if (rowCnt != 1) {
+				throw new Exception("community remove error");
+			}
+			
+			return "redirect:/community/list" + sc.getQueryString();
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("msg", "error");
@@ -122,6 +193,7 @@ public class CommunityController {
 	
 	/**
 	 * 댓글 (comments)
+	 * 
 	 */
 	@GetMapping("/comments")
 	@ResponseBody
@@ -264,21 +336,99 @@ public class CommunityController {
 				throw new Exception("id is null");
 			}
 			community.setUserId(userId);
+			
+			if (community.getCategory().equals("1")) {
+				community.setCategory("자유");
+			} else {
+				community.setCategory("후기");
+			}
+			
 			communityService.write(community);
 			
-			return "community";
+			return "redirect:/community/list";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "home";
 		}
 	}
 	
+	@PostMapping("/image")
+	@ResponseBody
+	public Map<String, Object> imageUpload(MultipartRequest request) {
+		
+		Map<String, Object> responseData = new HashMap<>();
+		
+		MultipartFile file = request.getFile("upload");
+		
+		String fileName = file.getOriginalFilename();
+		String ext = fileName.substring(fileName.indexOf("."));
+		
+		String uuidFileName = UUID.randomUUID() + ext;
+		String localPath = "C:\\sts_workspace2\\main\\src\\main\\webapp\\resources\\img\\community\\" + uuidFileName;
+		
+		String localUrl = "/tonicbank/resources/img/community/" + uuidFileName;
+		
+		File localFile = new File(localPath);
+		try {
+			file.transferTo(localFile);
+			
+			responseData.put("uploaded", true);
+			responseData.put("url", localUrl);
+			
+			return responseData; 
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+			return responseData;
+		}
+		
+	}
+	
 	@GetMapping("/writePop")
-	public String communityWritePop() {
+	public String communityWritePop(Model model) {
+		try {
+			Product product = new Product();
+			
+			product.setName("");
+			product.setIngredient("");
+			product.setEfficacy("");
+			
+			List<Product> list = productDao.find(product);
+			model.addAttribute("list", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return "writePop";
 	}
 	
-	
+	@PostMapping("/writePop")
+	@ResponseBody
+	public ResponseEntity<List<Product>> communityWritePop(String keyword, Model model) {
+		List<Product> list = null;
+		try {
+			Product product = new Product();
+			product.setName(keyword);
+			product.setIngredient("");
+			product.setEfficacy("");
+			list = productDao.find(product);
+			
+			product.setName("");
+			product.setIngredient(keyword);
+			product.setEfficacy("");
+			list.addAll(productDao.find(product));
+			
+			product.setName("");
+			product.setIngredient("");
+			product.setEfficacy(keyword);
+			list.addAll(productDao.find(product));
+			
+			return new ResponseEntity<List<Product>>(list, HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<List<Product>>(list, HttpStatus.BAD_REQUEST);
+		}
+	}
 	
 	private boolean loginCheck(HttpServletRequest req) {
 		HttpSession session = req.getSession();

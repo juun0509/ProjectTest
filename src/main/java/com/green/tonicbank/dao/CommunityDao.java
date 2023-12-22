@@ -19,6 +19,8 @@ public interface CommunityDao {
 	int count(SearchCondition sc) throws Exception;
 
 	Community select(Integer communityId) throws Exception;
+	
+	int updateCommunity(Community community) throws Exception;
 
 	int updateViewCount(Integer communityId) throws Exception;
 	
