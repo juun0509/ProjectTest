@@ -193,6 +193,13 @@
 .listTitle{
 font-weight: bold;	
 }
+.listContent {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 최대 줄 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 생략 부호(...) 표시 */
+}
 .listCategory{
 	border-right: 1px solid #ccc;
 	padding-right: 5px; 
