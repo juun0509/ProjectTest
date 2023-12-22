@@ -329,7 +329,7 @@ public class CommunityController {
 	@PostMapping("/write")
 	public String communityWrite(Community community, Model model, HttpSession session) {
 		String userId = (String)session.getAttribute("userId");
-		
+		community.setProductName(community.getProductName().replaceAll(",", ""));
 		
 		try {
 			if (userId == null) {
