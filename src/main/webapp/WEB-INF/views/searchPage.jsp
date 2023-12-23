@@ -81,40 +81,37 @@
 		   				</c:choose>
 					</ul>
             	</div>
-
-            <div class="result">
-                <h4>카테고리>성분명 (총 <b>?</b>건)<a>더보기</a></h4>
-                <div>
-                <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
-                <ul>
-                    <li>브랜드명:</li>
-                    <li>상품명:</li>
-                    <li>가격:</li>
-                    <li>성분:</li>
-                    <li>효능:</li>
-                    <li>후기(<a>1</a>)</li>
-
-                </ul>
-                </div>
-            </div>
+		 <div class="result">
+                <h4> (총 <b>${proPh.totalCnt }</b>건)<a> 더보기</a></h4>
                 
-            <div class="result">
-                <h4>카테고리>브랜드명 (총 <b>?</b>건)<a>더보기</a></h4>
+                <c:choose>
+                	<c:when test="${ empty productList }">
+								<div class="emptyList">
+									<p>상품이 없습니다.</p>
+								</div>
+				</c:when>
+				<c:otherwise>
+                <c:forEach var="prod" items="${ productList }" begin="0" end="4">
+                
                 <div>
-                <img src="/tonicbank/resources/img/slide1.jpg" alt="" class="img">
+                <img src="/tonicbank/resources/img/${prod.name }.jpg" alt="" class="img">
                 <ul>
-                    <li>브랜드명:</li>
-                    <li>상품명:</li>
-                    <li>가격:</li>
-                    <li>성분:</li>
-                    <li>효능:</li>
-                    <li>후기(<a>1</a>)</li>
+                    <li>상품명: ${prod.name }</li>
+                    <li>가격: ${prod.price } ~</li>
+                    <li>성분: ${prod.ingredient } </li>
+                    <li>효능: ${prod.efficacy }</li>
+                    <li>후기(<a href="#">${prod.review }</a>)</li>
 
                 </ul>
                 </div>
-            </div>
+                </c:forEach>
+           </c:otherwise>
+                </c:choose>
+                
         </div>
 
+        
+		
         
         
         <footer>
