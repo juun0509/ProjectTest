@@ -18,9 +18,9 @@ import com.green.tonicbank.service.ProdBoardService;
 @Controller
 public class TotalSearchController {
 
-	private final ProdBoardService prodBoardSvc; // »óÇ°°Ô½ÃÆÇ
-	private final InfoBoardService infoBoardSvc; // Á¤º¸°Ô½ÃÆÇ
-	private final CommunityService communitySvc; // ÀÚÀ¯°Ô½ÃÆÇ
+	private final ProdBoardService prodBoardSvc; // ìƒí’ˆê²Œì‹œíŒ
+	private final InfoBoardService infoBoardSvc; // ì •ë³´ê²Œì‹œíŒ
+	private final CommunityService communitySvc; // ììœ ê²Œì‹œíŒ
 	
 	@Autowired
 	public TotalSearchController(ProdBoardService prodBoardSvc, InfoBoardService infoBoardSvc, CommunityService communitySvc) {
@@ -34,7 +34,7 @@ public class TotalSearchController {
 	public String totalSearch(SearchCondition sc, Model model) {
 		sc.setOption("A");
 		sc.setPageSize(5);
-		System.out.println("ÅëÇÕ°Ë»ö : " + sc);
+		System.out.println("í†µí•©ê²€ìƒ‰ : " + sc);
 		try {
 			Date now = new Date();
 			int totalCount = communitySvc.getCount(sc);
@@ -43,6 +43,18 @@ public class TotalSearchController {
 			model.addAttribute("now", now);
 			model.addAttribute("ph", ph);
 			model.addAttribute("list", list);
+
+			
+			//product
+			int proCount =prodBoardSvc.count(sc.getKeyword());
+			PageHandler proPh=new PageHandler(proCount, sc);
+			List<Product> pro=prodBoardSvc.search(sc.getKeyword());
+			model.addAttribute("productList",pro);
+			model.addAttribute("proPh", proPh);
+
+
+
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,7 +65,7 @@ public class TotalSearchController {
 	@GetMapping("/more")
 	public String more(SearchCondition sc, Model model) {
 		sc.setOption("A");
-		System.out.println("ÅëÇÕ°Ë»ö ´õº¸±â : " + sc);
+		System.out.println("í†µí•©ê²€ìƒ‰ ë”ë³´ê¸° : " + sc);
 		try {
 			Date now = new Date();
 			int totalCount = communitySvc.getCount(sc);
