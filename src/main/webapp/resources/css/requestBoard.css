@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+
+*{
+    font-family: 'omyu_pretty';
+}
+
+#board{
+position:relative;
+width:1200px;
+}
+body{
+text-align:center;
+width:500px;
+padding:5px;
+}
+#table{
+margin:0px auto;
+width:1200px;
+margin-right:50px;
+border: 2px solid lightgrey;
+border-collapse: collapse;
+background-color: #EEEEEE;
+}
+
+
+th{
+padding:10px 0px;
+font-size:18px;
+border: 1px solid lightgrey;
+}
+td{
+padding:7px 0px;
+font-size:16px;
+border: 1px solid lightgrey;
+}
+#titletd{
+    background-color: white;
+
+}
+#page{
+    margin-top: 80px;
+}
+#page a{
+    font-size: 20px;
+    display:inline-block;
+    width: 40px;
+    height: 30px;
+    color: black;
+    background-color: #EEEEEE;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+#page a:focus{
+    
+    color: white;
+    background-color:  RGB(0,176,240);
+  
+}
+
+button{
+ background-color:black;
+ color:white;
+ cursor:pointer;
+ }
+
+
+a.check{
+background-color:black;
+color:white !important;
+}
+
+
+#searchList{
+    margin-top: 15px;
+    text-align: left;
+    float: inline-start;
+    position: relative;
+}
+#searchList select{
+    font-size: 17px;
+    height: 40px;
+    border-radius: 8%;
+}
+#searchList input{
+    font-size: 17px;
+    height: 34px;
+    border-radius: 8%;
+    padding-left: 30px;
+
+}
+#searchList button{
+    font-size: 17px;
+    height: 40px;
+    border-radius: 8%;
+}
+#searchList img{
+    width:25px;
+    height: 30px;
+    border-radius: 8%;
+    position: absolute;
+    top:5px;
+    left: 90px;
+    
+
+
+}
+
+#dBtn button{
+   
+    margin-top: 15px;
+    width: 100px;
+    font-size: 17px;
+    height: 40px;
+    border: none;
+    border-radius: 8%;
+    background-color:  RGB(0,176,240);
+    float: inline-end;
+
+}
+
+@font-face {
+font-family: 'KCC-Ganpan';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'omyu_pretty';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
