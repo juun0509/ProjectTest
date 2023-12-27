@@ -17,4 +17,10 @@ public interface ProductDao {
 	List<Product> custom(String keyword) throws Exception;
 	
 	List<Product> find (Product product)throws Exception;
+
+	List<Product> search (String keyword) throws Exception;
+	
+	int count (String keyword) throws Exception;
+
+	
 }

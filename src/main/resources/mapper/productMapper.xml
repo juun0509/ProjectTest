@@ -33,5 +33,19 @@
   		  ANd name LIKE CONCAT('%', #{name}, '%');
 	
 	</select>
+
+	<select id="search" parameterType="String" resultType="Product">
+			SELECT *
+			FROM product
+			WHERE CONCAT_WS(' ', name, ingredient, efficacy, price, size) LIKE CONCAT('%', #{keyword}, '%')
+			
+	</select>
+	
+	<select id="count" parameterType="String" resultType="Integer">
+		SELECT count(*)
+			FROM product
+			WHERE CONCAT_WS(' ', name, ingredient, efficacy, price, size) LIKE CONCAT('%', #{keyword}, '%')
+			
+	</select>
 	
 </mapper>
