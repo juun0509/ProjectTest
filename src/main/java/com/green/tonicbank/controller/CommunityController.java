@@ -338,9 +338,9 @@ public class CommunityController {
 			community.setUserId(userId);
 			
 			if (community.getCategory().equals("1")) {
-				community.setCategory("자유");
+				community.setCategory("free");
 			} else {
-				community.setCategory("후기");
+				community.setCategory("rev");
 			}
 			
 			communityService.write(community);

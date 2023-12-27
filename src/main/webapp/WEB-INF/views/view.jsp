@@ -15,7 +15,12 @@
 <body>
 	<div id="view">
 		<form name="viewFrm">
-			<p>${ community.category }</p>
+			<p>
+				<c:choose>
+					<c:when test="${ board.category == 'popularity' }">인기</c:when>
+					<c:otherwise>후기</c:otherwise>
+				</c:choose>
+			</p>
 			<h1>${ community.title }</h1>
 			<p>${ community.nick }
 				|

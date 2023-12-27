@@ -15,10 +15,10 @@
 	<div id=board>
 		<div class="category">
 
-			<input class="gory sBtn" type="button" value="전체">
-			<input class="gory sBtn" type="button" value="인기">
-			<input class="gory sBtn" type="button" value="자유">
-			<input class="gory sBtn" type="button" value="후기">
+			<button class="gory sBtn" type="button" value="all">전체</button>
+			<button class="gory sBtn" type="button" value="popularity">인기</button>
+			<button class="gory sBtn" type="button" value="free">자유</button>
+			<button class="gory sBtn" type="button" value="rev">후기</button>
 
 		</div>
 
@@ -72,7 +72,12 @@
 
 					<td>${board.communityId}</td>
 					<!-- 게시물 번호 -->
-					<td>${board.category}</td>
+					<td>
+						<c:choose>
+							<c:when test="${ board.category == 'free' }">자유</c:when>
+							<c:otherwise>후기</c:otherwise>
+						</c:choose>
+					</td>
 					<td id="titletd"><a
 						href="<c:url value='/community/read${ph.sc.queryString}&communityId=${board.communityId}'/>">${board.title }</a>
 					</td>
@@ -176,17 +181,17 @@
     
     function orderTypeSelect() {
     	let category = "${ param.orderType }";
-    	if (category == "인기") {
-    		document.querySelector('.gory[value="인기"]').classList.add('selected');
+    	if (category == "popularity") {
+    		document.querySelector('.gory[value="popularity"]').classList.add('selected');
     	}
-    	else if (category == "자유") {
-    		document.querySelector('.gory[value="자유"]').classList.add('selected');
+    	else if (category == "free") {
+    		document.querySelector('.gory[value="free"]').classList.add('selected');
     	}
-    	else if (category == "후기") {
-    		document.querySelector('.gory[value="후기"]').classList.add('selected');
+    	else if (category == "rev") {
+    		document.querySelector('.gory[value="rev"]').classList.add('selected');
     	}
     	else {
-    		document.querySelector('.gory[value="전체"]').classList.add('selected');
+    		document.querySelector('.gory[value="all"]').classList.add('selected');
     	}
     }
 </script>

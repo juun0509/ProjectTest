@@ -13,17 +13,17 @@ import com.green.tonicbank.model.PageHandler;
 import com.green.tonicbank.model.SearchCondition;
 import com.green.tonicbank.service.CommunityService;
 import com.green.tonicbank.service.InfoBoardService;
-import com.green.tonicbank.service.ProdBoardService;
+import com.green.tonicbank.service.RequestBoardService;
 
 @Controller
 public class TotalSearchController {
 
-	private final ProdBoardService prodBoardSvc; // 상품게시판
+	private final RequestBoardService prodBoardSvc; // 상품게시판
 	private final InfoBoardService infoBoardSvc; // 정보게시판
 	private final CommunityService communitySvc; // 자유게시판
 	
 	@Autowired
-	public TotalSearchController(ProdBoardService prodBoardSvc, InfoBoardService infoBoardSvc, CommunityService communitySvc) {
+	public TotalSearchController(RequestBoardService prodBoardSvc, InfoBoardService infoBoardSvc, CommunityService communitySvc) {
 		super();
 		this.prodBoardSvc = prodBoardSvc;
 		this.infoBoardSvc = infoBoardSvc;

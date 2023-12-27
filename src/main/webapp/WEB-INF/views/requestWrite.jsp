@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
-<form method="post"  enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" action='<c:url value="/requestBoard/write" />'>
         <div id="wcontainer">
         <h2>제목</h2>
         <input id="wtitle" type="text" name="title" placeholder="제목을 입력하세요" value=${not empty dto.title? dto.title:"" }>
@@ -30,8 +29,8 @@
 이미지:</textarea>
        
        
-        <input id="wimg" type="file" name="imgsrc" placeholder="이미지를 첨부해주세요" onchange="readURL(this);" value=${not empty dto.imgFile? dto.imgFile:"" }>
-        <input type="hidden" name="imgFile" id="imgFile">
+        <input id="wimg" type="file" name="wimg" placeholder="이미지를 첨부해주세요" onchange="uploadFile()" value=${not empty dto.imgFile? dto.imgFile:"" }>
+        <input type="hidden" name="imageUrl" id="imgFile">
        
             <div id="wbtns"> 
                 <button type="submit">등록</button>
@@ -40,5 +39,29 @@
         </div>
 </form>
     
+    <script>
+	    function uploadFile() {
+	        var fileInput = document.querySelector("input[name=wimg]");
+	        var file = fileInput.files[0];
+	
+	        var formData = new FormData();
+	        formData.append('file', file);
+	
+	        $.ajax({
+	            url: '/tonicbank/requestBoard/image',  // 서버의 업로드 처리 URL로 변경해야 합니다.
+	            type: 'POST',
+	            data: formData,
+	            processData: false,
+	            contentType: false,
+	            success: function(response) {
+	                console.log('File uploaded successfully:', response);
+	                document.querySelector('input[name=imageUrl]').value = response;
+	            },
+	            error: function(error) {
+	                console.error('File upload failed:', error);
+	            }
+	        });
+	    }
+    </script>
 </body>
 </html>

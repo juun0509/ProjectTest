@@ -29,14 +29,14 @@
 	<!-- 카테고리 -->
 	<sql id="categoryFilter">
 		<choose>
-			<when test='orderType == "인기"'>
+			<when test='orderType == "popularity"'>
 				and likeCount >= 10 
 			</when>
-			<when test='orderType == "자유"'>
-				 and category="자유"
+			<when test='orderType == "free"'>
+				 and category="free"
 			</when>
-			<when test='orderType == "후기"'>
-				 and category="후기"
+			<when test='orderType == "rev"'>
+				 and category="rev"
 			</when>
 		</choose>
 	</sql>
