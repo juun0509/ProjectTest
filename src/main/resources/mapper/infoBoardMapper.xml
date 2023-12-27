@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.green.tonicbank.InfoBoard">
+
+	<insert id="insertInfoBoard" parameterType="InfoBoard">
+		INSERT INTO infoBoard (infoBoardId, name, content, recIntake, precautions)
+		SELECT COALESCE(MAX(infoBoardId), 0) + 1 AS nextInfoBoardId, 
+		#{name}, #{content}, #{recIntake}, #{precautions} 
+		FROM infoBoard
+	</insert>
+	
+	<select id="selectAllInfoBoard" resultType="InfoBoard">
+		select * from infoBoard order by viewCount desc
+	</select>
+	
+	<select id="selectSearchInfoBoard" parameterType="String" resultType="InfoBoard">
+		select * from infoBoard where name like concat('%', #{keyword}, '%') order by viewCount desc
+	</select>
+	
+	<select id="selectInfoBoard" parameterType="int" resultType="InfoBoard">
+		select * from infoBoard where infoBoardId = #{infoBoardId}
+	</select>
+	
+	<update id="updateInfoBoard" parameterType="InfoBoard">
+		update infoBoard
+		set name = #{name}, content = #{content}, recIntake = #{recIntake}, precautions = #{precautions}
+		where infoBoardId = #{infoBoardId}
+	</update>
+	
+	<update id="updateInfoBoardViewCount" parameterType="int">
+		update infoBoard
+		set viewCount = viewCount + 1
+		where infoBoardId = #{infoBoardId}
+	</update>
+
+	<delete id="deleteInfoBoard" parameterType="int">
+		delete from infoBoard where infoBoardId = #{infoBoardId}
+	</delete>
+
+</mapper>

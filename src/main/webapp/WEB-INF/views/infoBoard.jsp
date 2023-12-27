@@ -15,19 +15,16 @@
 
             <form id="searchList">
                 <img src="/tonicbank/resources/img/돋보기.png">
-                <input type="text" name="keyword" value="${ph.sc.keyword}" placeholder="영양제를 검색해보세요">
+                <input type="text" name="keyword" value="${ keyword }" placeholder="영양제를 검색해보세요">
                 <button id="sBtn">검색</button>
               
             </form>
         
             <div class="tagList">
 
-        
-                    <input class="tag" type="button" value="DHA">
-					<input class="tag" type="button" value="Hawthorn">
-					<input class="tag" type="button" value="MSM">
-					<input class="tag" type="button" value="NAC">
-					<input class="tag" type="button" value="Garcinia">
+        			<c:forEach var="infoBoard" items="${ list }">
+        				<button class="tag" type="button" value="${ infoBoard.infoBoardId }">${ infoBoard.name }</button>
+        			</c:forEach>
 					<input class="tag" type="button" value="Gamma-linolenicAcid">
 					<input class="tag" type="button" value="Turmeric (Curcumin)">
 					<input class="tag" type="button" value="Cinnamon">
@@ -94,14 +91,17 @@
 
             </div>
         
-        
-              
-             
-
-          
-           
         </div>   
            
-           
+	<script>
+	var tagElements = document.querySelectorAll('.tag');
+
+	tagElements.forEach(function(tagElement) {
+	  tagElement.addEventListener('click', function() {
+	    var infoBoardId = this.value;
+	    location.href = '<c:url value="/infoBoard/view" />?infoBoardId=' + infoBoardId;
+	  });
+	});
+	</script>
 </body>
 </html>

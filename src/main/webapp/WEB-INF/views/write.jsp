@@ -82,8 +82,7 @@
 	    			efficacy : ""
 	    		}),
 	    		success : function(result) {
-	    			console.log(result);
-	    			console.log(name);
+	    			console.log(result[0].name);
 	    			$('#wcontainer3 #searchPro').detach();
 	    			
 	    			let tmp = '<a id="searchPro" onclick ="window.open(\'<c:url value="/community/writePop" />\',\'pop\',\'width=280,height=320, left=0, status=no ,location=no, directoryies=no,toolbar=no, menubar=no,resizable=no\')">';

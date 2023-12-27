@@ -29,7 +29,6 @@ h1{
     background-color: #eeeeee;
 }
 #data{
-    border: 1px solid RGB(0,176,240);
     height: 20px;
     border-radius:50px 50px 50px 50px / 50px 50px 50px 50px ;
         /* width=권장섭취량/2 */

@@ -8,6 +8,7 @@
 	<typeAlias alias="Product" type="com.green.tonicbank.model.Product"/>
 	<typeAlias alias="Community" type="com.green.tonicbank.model.Community"/>
 	<typeAlias alias="CommunityComment" type="com.green.tonicbank.model.CommunityComment"/>
+	<typeAlias alias="InfoBoard" type="com.green.tonicbank.model.InfoBoard"/>
 	<typeAlias alias="Image" type="com.green.tonicbank.model.Image"/>
 	<typeAlias alias="SearchCondition" type="com.green.tonicbank.model.SearchCondition"/>
 </typeAliases>	
