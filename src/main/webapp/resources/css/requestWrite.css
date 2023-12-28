@@ -1,0 +1,94 @@
+@charset "UTF-8";
+#wcontainer{
+    width:1200px;
+    font-family: 'omyu_pretty';
+    }
+    
+    #wcontainer h2{
+        margin: 3px;
+        margin-left:20px;
+    }
+    #wtitle{
+    width: 1100px;
+    height:30px;
+    border: 1px solid #999;
+    margin-left:20px;
+    font-size:20px;
+    padding:3px;
+    text-align:left;
+    margin-bottom:30px;
+    font-family: 'omyu_pretty';
+    }
+
+    #wcontent{
+    display:block;
+    width: 1086px;
+    min-height: 400px;
+    padding: 5px 10px;
+    font-size:17px;
+    line-height:20px;
+    margin-left:20px;
+    border: 1px solid #999;
+    font-family: 'omyu_pretty';
+    overflow:scroll;
+    
+    }
+    
+    #wimg{
+    display:inline;
+    padding:3px 5px;
+    margin-left:20px;
+    font-family: 'omyu_pretty';
+    width: 1096px;
+    height:40px;
+    border: 1px solid #999;
+    border-top: none;
+    font-size:17px;
+    
+    }
+
+    button{
+    margin-top:20px;
+    margin-right:8px;
+     background-color:black;
+     color:white;
+     float:right;
+     cursor:pointer;
+     font-size:13.3px;
+    
+    }
+    
+    input[type=file]::file-selector-button {
+        width: 100px;
+        height: 35px;
+        border: none;
+        background-color: #dddddd;
+        border-radius:4px 4px 4px 4px/4px 4px 4px 4px;
+        font-size:17px;
+        font-family: 'omyu_pretty';
+        margin-top: 3px;
+        cursor: pointer;
+    }
+
+    @font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }
+    #wbtns{
+        width: 1135px;
+
+    }
+    #wbtns button{
+        margin-top: 15px;
+        width: 100px;
+        font-size: 17px;
+        height: 40px;
+        border: none;
+        border-radius: 8%;
+        background-color:  RGB(0,176,240);
+        color: white;
+        float: inline-end;
+        cursor: pointer;
+    }
