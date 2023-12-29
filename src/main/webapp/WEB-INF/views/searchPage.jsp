@@ -81,8 +81,9 @@
 		   				</c:choose>
 					</ul>
             	</div>
-		 <div class="result">
-                <h4> (총 <b>${proPh.totalCnt }</b>건)<a> 더보기</a></h4>
+		<div id="result">
+         <div class="result" style="margin-top: 0px;">
+                <h4> (총 <b>${proPh.totalCnt }</b>건)<a href="<c:url value='/morepro'/>?keyword=${ph.sc.keyword}"> 더보기</a></h4>
                 
                 <c:choose>
                 	<c:when test="${ empty productList }">
@@ -96,6 +97,7 @@
                 <div>
                 <img src="/tonicbank/resources/img/${prod.name }.jpg" alt="" class="img">
                 <ul>
+                <li>브랜드명:</li>
                     <li>상품명: ${prod.name }</li>
                     <li>가격: ${prod.price } ~</li>
                     <li>성분: ${prod.ingredient } </li>
@@ -110,8 +112,7 @@
                 
         </div>
 
-        
-		
+		</div>
         
         
         <footer>
@@ -129,8 +130,8 @@
                 <p><a href="#" title="f"></a><a href="#" title="i"></a><a href="#" title="k"></a></p>
         </div>
         </footer>
-  
-
+  	
+	
     
     
     
