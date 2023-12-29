@@ -80,5 +80,21 @@ public class TotalSearchController {
 		}
 		return "morePage";
 	}
-	
+	@GetMapping("/morepro")
+	public String morePro(SearchCondition sc, Model model) {
+		sc.setOption("A");
+		try {
+			int proCount =prodBoardSvc.count(sc.getKeyword());
+			PageHandler proPh=new PageHandler(proCount, sc);
+			System.out.println(proPh);
+			List<Product> pro=prodBoardSvc.search(sc.getKeyword());
+			model.addAttribute("productList",pro);
+			model.addAttribute("proPh", proPh);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "moreProduct";
+	}
 }
