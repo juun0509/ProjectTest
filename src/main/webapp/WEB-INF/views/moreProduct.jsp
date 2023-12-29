@@ -49,7 +49,7 @@
 								</div>
 				</c:when>
 				<c:otherwise>
-                <c:forEach var="prod" items="${ productList }">
+                  <c:forEach var="prod" items="${ productList }" begin="${ (proPh.sc.page-1)*10 }" end="${ (proPh.sc.page-1)*10+9 }">
                 
                 <div>
                 <img src="/tonicbank/resources/img/${prod.name }.jpg" alt="" class="img">
