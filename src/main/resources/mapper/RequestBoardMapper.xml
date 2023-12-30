@@ -49,7 +49,7 @@
 	</select>
 
 	<update id="update" parameterType="RequestBoard">
-		update requestBoard set title = #{title}, content = #{content}
+		update requestBoard set title = #{title}, content = #{content}, imageUrl = #{imageUrl}
 		where requestBoardId = #{requestBoardId}
 	</update>
 	

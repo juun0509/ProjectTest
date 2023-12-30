@@ -35,14 +35,14 @@
 			</p>
 			<hr>
 
-			<div id="cont">${ requestBoard.content }<br><img src='<c:url value="${ requestBoard.imageUrl }" />' /></div>
+			<div id="cont">${ requestBoard.content }<br><img src='${ requestBoard.imageUrl }' /></div>
 
 			<hr>
 			<c:if
 				test="${not empty sessionScope.userId && sessionScope.userId == requestBoard.userId }">
 				<!-- 작성자가 본인일 경우에만 버튼 활성화-->
 				<button type="button" class="btn" id="modiBtn"
-					onclick="location.href='<c:url value="/requestBoard/modify?crequestBoardId=${requestBoard.requestBoardId}"/>';">
+					onclick="location.href='<c:url value="/requestBoard/modify"/>?requestBoardId=${requestBoard.requestBoardId}'">
 					수정</button>
 				<button type="button" class="btn" onclick="deletePost();">
 					삭제</button>
@@ -68,7 +68,7 @@
 			if (confirmed) {
 				var form = document.viewFrm;
 				form.method = "post";
-				form.action="<c:url value='/requestBoard/remove' />${ sc.queryString }";
+				form.action="<c:url value='/requestBoard/remove' />?requestBoardId=${ requestBoard.requestBoardId }";
 				form.submit();
 			}
 		}

@@ -18,6 +18,8 @@ public interface CommunityService {
 	
 	Community getCommunity(Integer communityId) throws Exception;
 	
+	List<Community> getReview(String productName) throws Exception;
+	
 	int modifyCommunity(Community community) throws Exception;
 
 	int modifyViewCount(Integer communityId) throws Exception;

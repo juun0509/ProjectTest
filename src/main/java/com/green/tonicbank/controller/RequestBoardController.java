@@ -2,6 +2,9 @@ package com.green.tonicbank.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +34,7 @@ import com.green.tonicbank.service.RequestBoardService;
 public class RequestBoardController {
 	
 	private final RequestBoardService requestBoardService;
+	private String imgPath = "C:\\sts_workspace2\\main\\src\\main\\webapp\\resources\\img\\requestBoard\\";
 
 	@Autowired
 	public RequestBoardController(RequestBoardService requestBoardService) {
@@ -115,7 +119,7 @@ public class RequestBoardController {
 		String ext = fileName.substring(fileName.indexOf("."));
 		
 		String uuidFileName = UUID.randomUUID() + ext;
-		String localPath = "C:\\sts_workspace2\\main\\src\\main\\webapp\\resources\\img\\requestBoard\\" + uuidFileName;
+		String localPath = imgPath + uuidFileName;
 		
 		String localUrl = "/tonicbank/resources/img/requestBoard/" + uuidFileName;
 		
@@ -130,5 +134,70 @@ public class RequestBoardController {
 			return localUrl;
 		}
 		
+	}
+	
+	@GetMapping("modify")
+	public String modifyRequestBoard(Integer requestBoardId, Model model) {
+		try {
+			RequestBoard requestBoard = requestBoardService.getRequestBoard(requestBoardId);
+			
+			model.addAttribute("requestBoard", requestBoard);
+			
+			return "requestModify";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "error");
+			return "home";
+		}
+	}
+	
+	@PostMapping("modify")
+	public String modifyRequestBoard(RequestBoard requestBoard, String oldFileName, Model model) {
+		try {
+			System.out.println(requestBoard);
+			System.out.println(oldFileName);
+			String localPath = imgPath;
+			
+			int res = requestBoardService.modifyRequestBoard(requestBoard);
+			
+			if (res != 1) {
+				throw new Exception("requestBoard modify error");
+			}
+			
+			if (!requestBoard.getImageUrl().equals(oldFileName)) {
+				System.out.println("파일 삭제");
+				String fileName = oldFileName.replace("/tonicbank/resources/img/requestBoard/", "");
+				Path path = Paths.get(localPath + fileName);
+				Files.delete(path);
+			}
+			
+			return "redirect:/requestBoard/read?requestBoardId=" + requestBoard.getRequestBoardId();
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "error");
+			return "home";
+		}
+	}
+	
+	@PostMapping("remove")
+	public String removeRequestBoard(Integer requestBoardId, Model model) {
+		String localPath = imgPath;
+		
+		try {
+			String fileName = requestBoardService.getRequestBoard(requestBoardId).getImageUrl().replace("/tonicbank/resources/img/requestBoard/", "");
+			Path path = Paths.get(localPath + fileName);
+			Files.delete(path);
+			int res = requestBoardService.removeRequestBoard(requestBoardId);
+			
+			if (res != 1) {
+				throw new Exception("requestBoard remove error");
+			}
+			
+			return "redirect:/requestBoard/list";
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "error");
+			return "home";
+		}
 	}
 }

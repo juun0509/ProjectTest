@@ -68,6 +68,12 @@
 		where communityId=#{communityId}
 	</select>
 	
+	<select id="selectReview" parameterType="String" resultType="Community">
+		SELECT community.*, user.nick FROM community 
+		JOIN user ON community.userId = user.userId 
+		where productName like concat('%', #{keyword}, '%')
+	</select>
+	
 	<update id="updateCommunity" parameterType="Community">
 		update community set title = #{title}, content = #{content}
 		where communityId = #{communityId}

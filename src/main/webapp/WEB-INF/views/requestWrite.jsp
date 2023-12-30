@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<link href="<c:url value="/resources/css/requestWrite.css"/>" rel='stylesheet' />
+	<link href='<c:url value="/resources/css/requestWrite.css"/>' rel='stylesheet' />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -18,17 +18,13 @@
         <h2>제목</h2>
         <input id="wtitle" type="text" name="title" placeholder="제목을 입력하세요" value=${not empty dto.title? dto.title:"" }>
         <h2>내용</h2>
-        <textarea id="wcontent" name="content" placeholder="내용을 입력하세요">제품명: 
+        <textarea id="wcontent" name="content" placeholder="내용을 입력하세요">제품명:
 제조사: 
-내용: 
-
-
-
-
-
-이미지:</textarea>
+내용:</textarea>
        
-       
+		<div id="showImage">
+			
+		</div>
         <input id="wimg" type="file" name="wimg" placeholder="이미지를 첨부해주세요" onchange="uploadFile()" value=${not empty dto.imgFile? dto.imgFile:"" }>
         <input type="hidden" name="imageUrl" id="imgFile">
        
@@ -56,6 +52,11 @@
 	            success: function(response) {
 	                console.log('File uploaded successfully:', response);
 	                document.querySelector('input[name=imageUrl]').value = response;
+	                
+	                let showImage = document.querySelector('#showImage');
+	                let imgTag = '<img src="' + response + '" />';
+	                
+	                showImage.innerHTML = imgTag;
 	            },
 	            error: function(error) {
 	                console.error('File upload failed:', error);

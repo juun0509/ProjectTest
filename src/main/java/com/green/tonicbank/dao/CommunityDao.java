@@ -20,6 +20,8 @@ public interface CommunityDao {
 
 	Community select(Integer communityId) throws Exception;
 	
+	List<Community> selectReview(String productName) throws Exception;
+	
 	int updateCommunity(Community community) throws Exception;
 
 	int updateViewCount(Integer communityId) throws Exception;

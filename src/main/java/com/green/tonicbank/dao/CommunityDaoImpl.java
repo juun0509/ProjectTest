@@ -55,6 +55,11 @@ public class CommunityDaoImpl implements CommunityDao {
 	}
 	
 	@Override
+	public List<Community> selectReview(String productName) throws Exception {
+		return session.selectList(namespace + "selectReview", productName);
+	}
+	
+	@Override
 	public int updateCommunity(Community community) throws Exception {
 		return session.update(namespace + "updateCommunity", community);
 	}

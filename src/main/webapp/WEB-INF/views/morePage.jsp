@@ -37,7 +37,7 @@
 	        </div>
 			
         	<div id="result">
-            	<h2>자유게시판</h2>
+            	<h2>${ title }</h2>
             	<div class="result" style="margin-top: 0px;">
                 	<h4><b>${ph.totalCnt }</b>건</h4>
 					<ul>
@@ -60,7 +60,13 @@
 						                		<span class="listContent">${board.content }</span>
 					                		</div>
 					                		<div>
-						                		<span class="listCategory">${board.category }</span>
+						                		<span class="listCategory">${board.nick }</span>
+												<span class="listCategory">
+													<c:choose>
+														<c:when test="${ board.category == 'free' }">자유</c:when>
+														<c:otherwise>후기</c:otherwise>
+													</c:choose>
+												</span>
 						                		<c:choose>
 													<c:when test="${ today <= reg_date }">
 														<span>

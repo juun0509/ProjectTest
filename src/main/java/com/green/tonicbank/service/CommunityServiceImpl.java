@@ -42,6 +42,11 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 	
 	@Override
+	public List<Community> getReview(String productName) throws Exception {
+		return communityDao.selectReview(productName);
+	}
+	
+	@Override
 	public int modifyCommunity(Community community) throws Exception {
 		return communityDao.updateCommunity(community);
 	}
