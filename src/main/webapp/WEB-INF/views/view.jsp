@@ -40,7 +40,7 @@
 				| 조회수 ${community.viewCount}
 			</p>
 			<hr>
-			<c:if test="${ community.category == '후기' }">
+			<c:if test="${ community.category == 'rev' }">
 				<div id="product">
 					<img
 						src="${pageContext.request.contextPath}/resources/img/slide1.jpg"
