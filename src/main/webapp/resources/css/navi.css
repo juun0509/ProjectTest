@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+*{
+	margin: 0 auto;
+    padding: 0px;
+}
+
+#nav{
+    width: 1200px;
+    height: 100px;
+    border-bottom: 1px solid #999;
+    margin-bottom:60px;
+}
+
+#logo{
+
+    text-align: center;
+    padding-top: 15px;
+    font-size: 25px; 
+    font-family:"KCC-Ganpan";
+    text-shadow: 1px 0 #666;
+    width: 200px;
+    height: 100px;
+    float: inline-start;
+    line-height: 80px;
+    display: block;
+}
+#top{
+    font-size: 22px;
+    font-family:"omyu_pretty";
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 650px;
+    height: 100px;
+    z-index: 8; 
+    display: inline-block;
+}
+
+
+#side{
+    border-radius: 3%;
+
+    font-family:"omyu_pretty";
+    width: 280px;
+    height: 100px;
+    padding: 0 20px;
+    float: inline-end;
+}
+
+#side p{
+    text-align: right;
+    color: #000;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.side{
+    float: right;
+    border: none;
+    margin-top: 5px;
+    font-size: 20px;
+    background-color: white;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:"omyu_pretty";
+}
+
+.side:hover{
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer; 
+}
+
+button:focus{
+    border: none;
+}  
+
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none; 
+    display:inline;
+}
+
+
+#yy{
+    color: RGB(0,176,240);
+    
+}
+#jj{
+    color: RGB(192,235,248);
+}
+#logo:hover{
+    cursor: pointer;
+}
+
+
+
+#topMenu{
+    height: 50px;
+    margin-top: 0px;
+}
+#topMenu>li{
+    float: left;
+}
+#topMenu>li>a:hover{
+   
+    color:#000;
+}
+
+
+#topMenu>li>ul{
+ 
+    display: none;
+    width: 140px;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 10px;
+}
+
+#topMenu>li:hover>ul{
+    display: block;
+    z-index: 9; 
+}
+
+#topMenu li:hover a{
+    color: black;
+}
+#topMenu>li>ul>li>a:hover{
+    color: RGB(0,176,240);
+}
+
+
+#topMenu>li>a{
+    color: gray;
+    font-weight: 500;
+    padding: 20px 45px;
+}
+
+#topMenu>li>a>span{
+    font-size: 0.5em;
+}
+
+
+#topMenu>li>ul>li{
+    padding:5px 0px;
+    width: 130px;
+}
+
+#topMenu>li>ul>li>a{
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+#goul{
+    margin-left: 10px;
+
+}
+
+
+
+
+
+
+
+@font-face {
+font-family: 'LeeSeoyun';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'omyu_pretty';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'KCC-Ganpan';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+a[title^="f"]{
+    background:url(/html/js/img/페북.png) no-repeat;
+  float: right;
+   display:inline;
+   position: absolute;
+   padding: 50px 15px;
+   width: 30px;
+   margin: 5px;
+   top: 100%;
+   right: 6%;
+}
+a[title^="i"]{
+    background:url(/html/js/img/인스타.jpg) no-repeat;
+    padding: 50px 15px;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:3%;
+}
+a[title^="k"]{
+    background:url(/html/js/img/카톡.png) no-repeat;
+    padding:15px;
+    background-size: cover;
+    display:inline;
+    position: absolute;
+    float: right;
+    margin: 5px;
+    top: 100%;
+    right:0%;
+}
+
+
+
+.more{
+    width: 50px;
+   height: 20px;
+   border: none;
+   background-color: white;
+    font-size: 12px;
+    margin-left: 690px;
+    cursor: pointer;
+}
