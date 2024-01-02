@@ -17,7 +17,7 @@
     text-align: center;
     padding-top: 15px;
     font-size: 25px; 
-    font-family:"KCC-Ganpan";
+    font-family:"KCC-Ganpan" !important;
     text-shadow: 1px 0 #666;
     width: 200px;
     height: 100px;
