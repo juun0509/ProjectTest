@@ -28,11 +28,11 @@
 			<tr>
 				<th width="3%">번호</th>
 				<th width="6%">카테고리</th>
-				<th width="75%">제목</th>
+				<th width="71%">제목</th>
 				<th width="5%">글쓴이</th>
 				<th width="5%">작성일</th>
-				<th width="3%">조회수</th>
-				<th width="3%">추천</th>
+				<th width="5%">조회수</th>
+				<th width="5%">추천</th>
 			</tr>
 
 			<!-- 목록의 내용 -->
