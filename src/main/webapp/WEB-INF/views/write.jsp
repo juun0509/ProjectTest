@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-	<link href="<c:url value="/resources/css/write.css"/>" rel='stylesheet' />
+	<link href="<c:url value="resources/css/write.css"/>" rel='stylesheet' />
 	<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
 	<form method="post"  onsubmit="return formCheck(this)" id="writer" action='<c:url value="/community/write" />'>
             <div id="wcontainer">
                 <h2>카테고리</h2>
