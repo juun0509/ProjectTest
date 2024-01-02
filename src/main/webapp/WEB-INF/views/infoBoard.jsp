@@ -7,9 +7,10 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link rel="stylesheet" href="/tonicbank/resources/css/infoBoard.css">
+	<link rel="stylesheet" href="resources/css/infoBoard.css">
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
 <div id=board>
             <h1>정보게시판</h1>
 
