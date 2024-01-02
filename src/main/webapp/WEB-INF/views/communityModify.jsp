@@ -9,10 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-	<link href="<c:url value="/resources/css/write.css"/>" rel='stylesheet' />
+	<link href="<c:url value="resources/css/write.css"/>" rel='stylesheet' />
 	<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
 	<form method="post"  onsubmit="return formCheck(this)" id="writer" action='<c:url value="/community/modify" />'>
 			<input type="hidden" name="communityId" value="${ community.communityId }" />
 			<input type="hidden" name="category" value="${ community.category }" />
