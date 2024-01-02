@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 <title>Document</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="/tonicbank/resources/css/infoView.css">
+<link rel="stylesheet" href="resources/css/infoView.css">
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
 	<div id=board>
 		<h1>${ infoBoard.name }</h1>
 		<div id="content">
