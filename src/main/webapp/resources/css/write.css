@@ -4,7 +4,7 @@ body{
     font-family: 'omyu_pretty';
 }
 #writer{
-    width:1000px;
+    width:1200px;
     height: 1200px;
 }
 #writer h2{
@@ -20,7 +20,7 @@ body{
 
 }
 #wcontainer2 input{
-    width: 780px;
+    width: 980px;
     height: 30px;
     font-size: 16px;
     font-family: 'omyu_pretty';
