@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link href="<c:url value="/resources/css/freeBoard.css"/>"
+<link href="<c:url value="resources/css/freeBoard.css"/>"
 	rel='stylesheet' />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
 	<div id=board>
 		<div class="category">
 
