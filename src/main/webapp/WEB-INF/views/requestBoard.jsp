@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link href="<c:url value="/resources/css/requestBoard.css"/>"
+<link href="<c:url value="resources/css/requestBoard.css"/>"
 	rel='stylesheet' />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
 	src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
 </head>
 <body>
-
+<jsp:include page="navi.jsp"/>
 	<div id=board>
 
 		<!-- 게시물 목록 테이블(표) -->
