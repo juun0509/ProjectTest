@@ -98,8 +98,9 @@ input[type=file]::file-selector-button {
 #showImage {
 	border: 1px solid #999;
 	height: 100px;
-	width: 100%;
+	width: 1106.6px;
 	border-top: none;
+	margin-left:20px;
 }
 #showImage img {
 	max-width: 100%;
