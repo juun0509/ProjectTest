@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="/tonicbank/resources/css/findProduct.css">
+    <link rel="stylesheet" href="resources/css/findProduct.css">
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
     <div id="con">
     <div id="header"><h1>상품 찾기</h1> <button type="button">맞춤영양제 알아보기→</button> </div>
     <div id="main">
