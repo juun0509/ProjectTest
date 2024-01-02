@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<link href='<c:url value="/resources/css/requestWrite.css"/>' rel='stylesheet' />
+	<link href='<c:url value="resources/css/requestWrite.css"/>' rel='stylesheet' />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="navi.jsp"/>
 <form method="post" enctype="multipart/form-data" action='<c:url value="/requestBoard/write" />'>
         <div id="wcontainer">
         <h2>제목</h2>
